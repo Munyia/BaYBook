@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Import Link
+import { Link } from 'react-router-dom';
 
 // Mock data for books
 const booksData = [
@@ -49,52 +49,62 @@ const Recommended = () => {
         <h2 className="text-2xl font-bold text-[#8e05c2]">Recommended Books</h2>
       </div>
 
-      {/* Navigation arrows positioned on both ends of the screen */}
-      {canScrollLeft && (
-        <button
-          className="absolute top-18 left-0 bg-black text-white rounded-full p-1 transition hover:bg-gray-800"
-          onClick={scrollLeft}
-        >
-          ←
-        </button>
-      )}
-      {canScrollRight && (
-        <button
-          className="absolute top-18 right-0 bg-black text-white rounded-full p-1 transition hover:bg-gray-800"
-          onClick={scrollRight}
-        >
-          →
-        </button>
-      )}
-
       {/* Horizontal Scrollable Book Carousel */}
-      <div
-        ref={scrollRef}
-        className="flex overflow-x-auto no-scrollbar gap-4"
-        style={{ scrollbarWidth: 'none' }}
-      >
-        {booksData.map((book) => (
-          <div
-            key={book.id}
-            className="flex-shrink-0 p-3 border bg-white shadow-slate-900 rounded-2xl text-center w-48 group transition hover:scale-105 shadow-3xls"
+      <div className="relative">
+        {canScrollLeft && (
+          <button
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 text-white bg-black rounded-full p-2 transition hover:bg-dk-pry1 z-10"
+            onClick={scrollLeft}
           >
-            <img
-              src={book.img}
-              alt={book.name}
-              className="w-full shadow-slate-900 rounded-2xl h-64 object-cover mb-2 "
-            />
-            <h3 className="text-lg font-semibold ">{book.name}</h3>
-            {book.description && (
-              <p className="text-sm text-gray-700 mb-2">{book.description}</p>
-            )}
-            <Link
-              to={`/book/${book.id}`}
-              className="mt-2 inline-block bg-[#3e065f]  py-1 px-3 rounded-lg hover:bg-[#8e05c2] transition duration-300"
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+        )}
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-auto no-scrollbar gap-4"
+          style={{ scrollbarWidth: 'none' }}
+        >
+          {booksData.map((book) => (
+            <div
+              key={book.id}
+              className="relative flex-shrink-0 p-3 border bg-white shadow-slate-900 rounded-2xl w-48 group transition hover:scale-105 shadow-3xls"
             >
-              {book.shopText}
-            </Link>
-          </div>
-        ))}
+              <img
+                src={book.img}
+                alt={book.name}
+                className="w-full rounded-2xl h-64 object-cover mb-2"
+              />
+              {/* Overlay for text */}
+              <div className="absolute bottom-0 inset-x-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white p-2 rounded-b-2xl">
+                <h3 className="text-lg font-semibold">{book.name}</h3>
+                <Link to={`/book/${book.id}`}
+                  className="relative justify-center mx-auto w-fit flex items-center px-4 py-2 overflow-hidden font-base transition-all bg-pry rounded-md group"
+                >
+                  <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-black rounded group-hover:-mr-4 group-hover:-mt-4">
+                    <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-dk-pry1"></span>
+                  </span>
+                  <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-black rounded group-hover:-ml-4 group-hover:-mb-4">
+                    <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-dk-pry1"></span>
+                  </span>
+                  <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-dk-pry1 rounded-md group-hover:translate-x-0"></span>
+                  <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-white">{book.shopText}</span>
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+        {canScrollRight && (
+          <button
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 text-white bg-black rounded-full p-2 transition hover:bg-dk-pry1 z-10"
+            onClick={scrollRight}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        )}
       </div>
 
       {/* See more and Shop all Links */}

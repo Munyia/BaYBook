@@ -27,7 +27,7 @@ export default {
       fontFamily: {
         mont: ['Montserrat', 'sans-serif'],
         play: ['Playfair Display', 'sans-serif'],
-        edu: ['Edu Australia VIC WA NT Hand Guides', 'sans-serif'],
+        edu: ['Edu Australia VIC WA NT Hand Guides', ''],
       },
     },
   },
