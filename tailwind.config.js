@@ -7,21 +7,22 @@ export default {
   theme: {
     extend: {
       colors: {
-        'pry': '#700b97',
-        'pry1': '#8e05c2',
-        'dk-pry': '#000000',
-        'dk-pry1': '#3e065f',
+        'bg': '#E6DAFE',
+        'pry': '#BC20FF',
+        'pry1': '#AE8DF8',
+        'dk-pry1': '#8318B4',
       },
       animation: {
-        'bg-transition': 'bgTransition 10s infinite',
+        'bg-transition': 'bgTransition 5s infinite',
       },
       keyframes: {
         bgTransition: {
-          '0%': { backgroundColor: '#000000' },
-          '25%': { backgroundColor: '#3e065f' },
-          '50%': { backgroundColor: '#700b97' },
-          '75%': { backgroundColor: '#8e052' },
-          '100%': { backgroundColor: '#000000' },
+          // '0%': { backgroundColor: '#000000' },
+          '25%': { backgroundColor: '#8318B4' },
+          '50%': { backgroundColor: '#BC20FF' },
+          '75%': { backgroundColor: '#AE8DF8' },
+          '100%': { backgroundColor: '#8318B4' },
+          // '100%': { backgroundColor: '#E6DAFE' },
         },
       },
       fontFamily: {

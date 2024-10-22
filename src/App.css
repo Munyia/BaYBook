@@ -1,0 +1,15 @@
+@keyframes slide {
+  0% {
+    transform: translateX(0); /* Start at the beginning */
+  }
+  100% {
+    transform: translateX(-100%); /* Move to the end */
+  }
+}
+
+.animate-continuous-carousel {
+  display: flex;
+  width: 200%; /* Make sure it's wide enough for the duplicated content */
+  animation: slide 10s linear infinite; /* Adjust duration based on speed */
+  gap: 20px; /* Add consistent gap between images */
+}

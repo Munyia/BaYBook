@@ -43,8 +43,8 @@ const Popular = () => {
   }, []);
 
   return (
-    <div className="w-full bg-white p-6 relative">
-      {/* Header */}
+    <div className="w-full bg-bg border-y-4 border-pry my-10 border-double p-6 relative">
+       {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-bold text-[#8e05c2]">Popular Books</h2>
       </div>

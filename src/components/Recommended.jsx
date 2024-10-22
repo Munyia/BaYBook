@@ -43,7 +43,7 @@ const Recommended = () => {
   }, []);
 
   return (
-    <div className="w-full bg-white p-6 relative">
+    <div className="w-full bg-bg border-y-4 border-pry my-10 border-double p-6 relative">
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-bold text-[#8e05c2]">Recommended Books</h2>
@@ -63,18 +63,18 @@ const Recommended = () => {
         )}
         <div
           ref={scrollRef}
-          className="flex overflow-x-auto no-scrollbar gap-4"
+          className="flex overflow-x-auto py-5 no-scrollbar gap-4"
           style={{ scrollbarWidth: 'none' }}
         >
           {booksData.map((book) => (
             <div
               key={book.id}
-              className="relative flex-shrink-0 p-3 border bg-white shadow-slate-900 rounded-2xl w-48 group transition hover:scale-105 shadow-3xls"
+              className="relative flex-shrink-0 p-3 border bg-white shadow-slate-900 rounded-2xl w-48 group transition hover:scale-105 shadow-2xl"
             >
               <img
                 src={book.img}
                 alt={book.name}
-                className="w-full rounded-2xl h-64 object-cover mb-2"
+                className="w-full rounded-2xl bg-bg h-64 object-cover mb-2"
               />
               {/* Overlay for text */}
               <div className="absolute bottom-0 inset-x-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white p-2 rounded-b-2xl">
