@@ -7,6 +7,9 @@ import Signup from './pages/Signup'
 import Books from './pages/Books'
 import Popular from './components/Popular'
 import Recommended from './components/Recommended'
+import Footer from './components/Footer'
+import Header from './components/Header'
+import MouseTrail from './components/MouseTrail'
 
 
 function App() {
@@ -15,6 +18,8 @@ function App() {
   return (
     <>
      <BrowserRouter>
+     <MouseTrail/>
+     <Header/>
      <Routes>
      <Route path="/" element={<Home/>} />
      <Route path="/login" element={<Login/>} />
@@ -24,6 +29,7 @@ function App() {
      <Route path="/recommended" element={<Recommended />} />
 
      </Routes>
+     <Footer/>
      </BrowserRouter>
     </>
   )

@@ -17,14 +17,11 @@ export default {
       },
       keyframes: {
         bgTransition: {
-          // '0%': { backgroundColor: '#000000' },
-          '25%': { backgroundColor: '#8318B4' },
-          '50%': { backgroundColor: '#BC20FF' },
-          '75%': { backgroundColor: '#AE8DF8' },
-          '100%': { backgroundColor: '#8318B4' },
-          // '100%': { backgroundColor: '#E6DAFE' },
+          '0%, 100%': { backgroundColor: '#8318B4' }, // Start and end at the same color
+          '50%': { backgroundColor: '#BC20FF' }, // Midpoint
         },
       },
+      
       fontFamily: {
         mont: ['Montserrat', 'sans-serif'],
         play: ['Playfair Display', 'sans-serif'],

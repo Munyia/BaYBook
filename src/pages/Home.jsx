@@ -85,7 +85,6 @@ const carouselData = [
 const Home = () => {
   return (
     <div className=" bg-bg  min-h-screen">
-     <Header/>
       <header className="text-center py-8">
       <div className="relative flex gap-10 mt-[1%] w-[95vw] overflow-hidden">
   {/* Welcome Message - Left Side */}
@@ -187,23 +186,7 @@ const Home = () => {
      <Recommended/>
 
       {/* Categories Section */}
-      {/* <section className="py-8 px-4 bg-[#700b97]">
-        <h2 className="text-3xl font-semibold mb-4 text-center text-[#3e065f]">Explore Categories</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="p-4 bg-[#3e065f] rounded-lg text-center">
-            <h3 className="text-xl">Fantasy</h3>
-          </div>
-          <div className="p-4 bg-[#3e065f] rounded-lg text-center">
-            <h3 className="text-xl">Sci-Fi</h3>
-          </div>
-          <div className="p-4 bg-[#3e065f] rounded-lg text-center">
-            <h3 className="text-xl">Romance</h3>
-          </div>
-          <div className="p-4 bg-[#3e065f] rounded-lg text-center">
-            <h3 className="text-xl">Thriller</h3>
-          </div>
-        </div>
-      </section> */}
+    
 
      
 
