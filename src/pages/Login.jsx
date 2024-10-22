@@ -3,16 +3,37 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!email || !password) {
+      setError('Please fill in both fields.');
+      return;
+    }
+
+    // Handle login logic here (e.g., API call)
+    console.log('Logging in with:', { email, password });
+    // Reset error message on successful submission
+    setError('');
+  };
+
   return (
     <div className="pb-10 pt-5 px-10 flex gap-5 bg-bg border-y-4 border-pry border-double ">
-      <form className="flex flex-col gap-2  hover:from-[#E6DAFE] hover:to-[#BC20FF] p-4 w-[40%] rounded-3xl font-sans transition duration-300 bg-gradient-to-br from-[#BC20FF] to-[#E6DAFE]">
+     <form
+        className="flex flex-col gap-2 hover:from-[#E6DAFE] hover:to-[#BC20FF] p-4 w-[40%] rounded-3xl font-sans transition duration-300 bg-gradient-to-br from-[#BC20FF] to-[#E6DAFE]"
+        onSubmit={handleSubmit}
+      >   
+      {error && <p className="text-red-500 text-xs">{error}</p>}
         <div className="flex flex-col">
-          <label className="text-white text-xs font-semibold">Email</label>
+            <label className="text-white text-xs font-semibold">Email</label>
         </div>
         <div className="flex items-center border border-gray-300 rounded-full h-12 p-2 bg-white transition duration-200 focus-within:border-[#AE8DF8]">
           <svg
@@ -27,8 +48,12 @@ const Login = () => {
           </svg>
           <input
             placeholder="Enter your Email"
-            className="ml-2 text-xs border-none w-full h-full focus:outline-none"
-            type="text"
+            className="  p-2 w-full bg-white transition duration-200 focus:outline-none focus:border-[#AE8DF8] text-xs"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            aria-label="Email"
           />
         </div>
 
@@ -36,12 +61,16 @@ const Login = () => {
           <label className="text-white text-xs font-semibold">Password</label>
         </div>
         <div className="flex items-center border border-gray-300 rounded-full h-12 p-2 bg-white transition duration-200 focus-within:border-[#AE8DF8]">
-          <input
-            placeholder="Enter your Password"
-            className="ml-2 text-xs border-none w-full h-full focus:outline-none"
-            type={showPassword ? "text" : "password"}
-          />
-          <button
+        <input
+              placeholder="Enter your Password"
+              className="ml-2 text-xs border-none w-full h-full focus:outline-none"
+              type={showPassword ? 'text' : 'password'}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              aria-label="Password"
+            />
+                <button
             type="button"
             onClick={togglePasswordVisibility}
             className="ml-2 focus:outline-none flex items-center justify-center w-10 h-10"
@@ -107,9 +136,6 @@ const Login = () => {
             <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-black rounded group-hover:-mr-4 group-hover:-mt-4">
               <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-dk-pry1"></span>
             </span>
-            <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-black rounded group-hover:-ml-4 group-hover:-mb-4">
-              <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-dk-pry1"></span>
-            </span>
             <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-dk-pry1 rounded-md group-hover:translate-x-0"></span>
             <svg
               xmlns="http://www.w3.org/1999/xlink"
@@ -139,9 +165,6 @@ const Login = () => {
             <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-black rounded group-hover:-mr-4 group-hover:-mt-4">
               <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-dk-pry1"></span>
             </span>
-            <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-black rounded group-hover:-ml-4 group-hover:-mb-4">
-              <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-dk-pry1"></span>
-            </span>
             <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-dk-pry1 rounded-md group-hover:translate-x-0"></span>
             <svg
               xmlns="http://www.w3.org/1999/xlink"
@@ -159,10 +182,10 @@ const Login = () => {
           </button>
         </div>
       </form>
-      <div className="relative  h-[70vh] my-auto  rounded-3xl w-[55%] overflow-hidden">
+      <div className="relative  h-[70vh]   rounded-3xl w-[55%] overflow-hidden">
         {" "}
         {/* Overflow-hidden to keep it within bounds */}
-        <div className="relative w-full h-full my-auto bg-pry shadow-2xl shadow-pry1 overflow-hidden">
+        <div className="relative w-full h-full  bg-pry shadow-2xl shadow-pry1 overflow-hidden">
           <div className="flex animate-continuous-carousel h-full shadow-2xl shadow-pry1 bg-pry p-5 gap-5">
             {/* Original set of images */}
             {[

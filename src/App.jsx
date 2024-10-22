@@ -10,6 +10,7 @@ import Recommended from './components/Recommended'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import MouseTrail from './components/MouseTrail'
+import Test from './pages/Test'
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
      <Route path="/books" element={<Books />} />
      <Route path="/popular" element={<Popular />} />
      <Route path="/recommended" element={<Recommended />} />
+     <Route path="/test" element={<Test />} />
 
      </Routes>
      <Footer/>

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState('');
+
   const [formData, setFormData] = useState({
     username: '',
     firstName: '',
@@ -28,15 +30,33 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your form submission logic here
-    console.log("Form Data:", formData);
+    const { username, firstName, lastName, email, password, confirmPassword, country, state, phone, dob, gender } = formData;
+
+    // Check if all fields are filled
+    if (!username || !firstName || !lastName || !email || !password || !confirmPassword || !country || !state || !phone || !dob || !gender) {
+      setError('Please fill all fields.');
+      return;
+    }
+
+    // Check if password and confirm password match
+    if (password !== confirmPassword) {
+      setError('Passwords do not match.');
+      return;
+    }
+
+    // Handle signup logic here (e.g., API call)
+    console.log('Signing up with:', formData);
+    // Reset error message on successful submission
+    setError('');
   };
 
   return (
     <div className='pb-10 relative pt-5 px-10 flex gap-5 bg-bg border-y-4 border-pry border-double'>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-2 p-4 w-[40%] rounded-3xl font-sans bg-gradient-to-br from-[#BC20FF] to-[#E6DAFE]">
-
-      
+      <form
+        className="flex flex-col  gap-2 hover:from-[#E6DAFE] hover:to-[#BC20FF] p-4 w-[40%] rounded-3xl font-sans transition duration-300 bg-gradient-to-br from-[#BC20FF] to-[#E6DAFE]"
+        onSubmit={handleSubmit}
+      >
+        {error && <p className="text-red-500 text-xs">{error}</p>}
 
         {/* Name Inputs in Flex */}
         <div className="flex justify-between gap-2">
@@ -68,130 +88,127 @@ const Signup = () => {
             />
           </div>
         </div>
-        {/* Name Inputs in Flex */}
+
+        {/* Username and Email Inputs */}
         <div className="flex justify-between gap-2">
-           {/* Username */}
-        <div className="flex flex-col w-[48%]">
-          <label htmlFor="username" className="text-white text-xs font-semibold">Username</label>
-          <input
-            id="username"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            placeholder="Enter your Username"
-            className="h-12 p-2 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
-            required
-          />
+          <div className="flex flex-col w-[48%]">
+            <label htmlFor="username" className="text-white text-xs font-semibold">Username</label>
+            <input
+              id="username"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              placeholder="Enter your Username"
+              className="h-12 p-2 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
+              required
+            />
+          </div>
+
+          <div className="flex flex-col w-[48%]">
+            <label htmlFor="email" className="text-white text-xs font-semibold">Email</label>
+            <input
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Enter your Email"
+              className="h-12 p-2 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
+              type="email"
+              required
+            />
+          </div>
         </div>
 
-         {/* Email */}
-         <div className="flex flex-col w-[48%]">
-          <label htmlFor="email" className="text-white text-xs font-semibold">Email</label>
-          <input
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Enter your Email"
-            className="h-12 p-2 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
-            type="email"
-            required
-          />
-        </div>
+        {/* Password and Confirm Password Inputs */}
+        <div className="flex justify-between gap-2">
+          <div className="flex flex-col w-[48%]">
+            <label htmlFor="password" className="text-white text-xs font-semibold">Password</label>
+            <input
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Enter your Password"
+              className="h-12 p-2 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
+              type={showPassword ? 'text' : 'password'}
+              required
+            />
+          </div>
+
+          <div className="flex flex-col w-[48%]">
+            <label htmlFor="confirmPassword" className="text-white text-xs font-semibold">Confirm Password</label>
+            <input
+              id="confirmPassword"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              placeholder="Confirm your Password"
+              className="h-12 p-2 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
+              type={showPassword ? 'text' : 'password'}
+              required
+            />
+          </div>
         </div>
 
+        {/* Phone Number and Date of Birth Inputs */}
         <div className="flex justify-between gap-2">
-            {/* Password */}
-        <div className="flex flex-col w-[48%]">
-          <label htmlFor="password" className="text-white text-xs font-semibold">Password</label>
-          <input
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            placeholder="Enter your Password"
-            className="h-12 p-2 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
-            type={showPassword ? 'text' : 'password'}
-            required
-          />
-        </div>
-        
-        {/* Confirm Password */}
-        <div className="flex flex-col w-[48%]">
-          <label htmlFor="confirmPassword" className="text-white text-xs font-semibold">Confirm Password</label>
-          <input
-            id="confirmPassword"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            placeholder="Confirm your Password"
-            className="h-12 p-2 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
-            type={showPassword ? 'text' : 'password'}
-            required
-          />
-        </div>
+          <div className="flex flex-col w-[48%]">
+            <label htmlFor="phone" className="text-white text-xs font-semibold">Phone Number</label>
+            <input
+              id="phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="Enter your Phone Number"
+              className="h-12 p-2 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
+              type="tel"
+              required
+            />
+          </div>
+
+          <div className="flex flex-col w-[48%]">
+            <label htmlFor="dob" className="text-white text-xs font-semibold">Date of Birth</label>
+            <input
+              id="dob"
+              name="dob"
+              value={formData.dob}
+              onChange={handleChange}
+              className="h-12 p-2 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
+              type="date"
+              required
+            />
+          </div>
         </div>
 
+        {/* Country and State Inputs */}
         <div className="flex justify-between gap-2">
-             {/* Phone Number */}
-        <div className="flex flex-col w-[48%]">
-          <label htmlFor="phone" className="text-white text-xs font-semibold">Phone Number</label>
-          <input
-            id="phone"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            placeholder="Enter your Phone Number"
-            className="h-12 p-2 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
-            type="tel"
-            required
-          />
-        </div>
-        
-        {/* Date of Birth */}
-        <div className="flex flex-col w-[48%]">
-          <label htmlFor="dob" className="text-white text-xs font-semibold">Date of Birth</label>
-          <input
-            id="dob"
-            name="dob"
-            value={formData.dob}
-            onChange={handleChange}
-            className="h-12 p-2 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
-            type="date"
-            required
-          />
-        </div>
-        </div>
-        <div className="flex justify-between gap-2">
-          {/* Country */}
-        <div className="flex flex-col w-[48%]">
-          <label htmlFor="country" className="text-white text-xs font-semibold">Country</label>
-          <input
-            id="country"
-            name="country"
-            value={formData.country}
-            onChange={handleChange}
-            placeholder="Enter your Country"
-            className="h-12 p-2 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
-            required
-          />
-        </div>
-        
-       {/* State */}
-       <div className="flex flex-col w-[48%]">
-          <label htmlFor="state" className="text-white text-xs font-semibold">State</label>
-          <input
-            id="state"
-            name="state"
-            value={formData.state}
-            onChange={handleChange}
-            placeholder="Enter your State"
-            className="h-12 p-2 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
-            required
-          />
+          <div className="flex flex-col w-[48%]">
+            <label htmlFor="country" className="text-white text-xs font-semibold">Country</label>
+            <input
+              id="country"
+              name="country"
+              value={formData.country}
+              onChange={handleChange}
+              placeholder="Enter your Country"
+              className="h-12 p-2 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
+              required
+            />
+          </div>
+
+          <div className="flex flex-col w-[48%]">
+            <label htmlFor="state" className="text-white text-xs font-semibold">State</label>
+            <input
+              id="state"
+              name="state"
+              value={formData.state}
+              onChange={handleChange}
+              placeholder="Enter your State"
+              className="h-12 p-2 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
+              required
+            />
+          </div>
         </div>
 
-        </div>
 
         {/* Gender Selection */}
         <label className="text-white justify-center text-center text-xs font-semibold">Gender</label>
@@ -272,13 +289,7 @@ const Signup = () => {
           className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-dk-pry1"
         ></span>
       </span>
-      <span
-        className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-black rounded group-hover:-ml-4 group-hover:-mb-4"
-      >
-        <span
-          className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-dk-pry1"
-        ></span>
-      </span>
+    
       <span
         className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-dk-pry1 rounded-md group-hover:translate-x-0"
       ></span>
@@ -299,13 +310,7 @@ const Signup = () => {
           className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-dk-pry1"
         ></span>
       </span>
-      <span
-        className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-black rounded group-hover:-ml-4 group-hover:-mb-4"
-      >
-        <span
-          className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-dk-pry1"
-        ></span>
-      </span>
+     
       <span
         className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-dk-pry1 rounded-md group-hover:translate-x-0"
       ></span>
@@ -321,7 +326,7 @@ const Signup = () => {
     </div>
 
            </form>
-           <div className="absolute right-0 h-[70vh] my-auto rounded-3xl w-[55%] overflow-hidden">
+<div className="relative h-[70vh]  rounded-3xl w-[55%] overflow-hidden">
   <div className="absolute inset-0 bg-pry shadow-2xl shadow-pry1">
     <div className="flex animate-continuous-carousel h-full shadow-2xl shadow-pry1 bg-pry p-5 gap-5">
       {/* Original set of images */}
@@ -362,7 +367,9 @@ const Signup = () => {
         </div>
       ))}
     </div>
+  
   </div>
+
 </div>
 
 
