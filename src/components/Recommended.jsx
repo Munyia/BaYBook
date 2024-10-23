@@ -58,7 +58,7 @@ const Recommended = () => {
   };
 
   return (
-    <div className="w-full bg-bg border-y-4 border-pry my-10 border-double p-6 relative">
+    <div className="w-full bg-bg border-y-4 border-pry  mt-10 border-double p-6 relative">
     <div className="flex justify-between items-center mb-4">
       <h2 className="text-2xl font-bold text-[#8e05c2]">Recommended Books</h2>
     </div>
@@ -128,7 +128,7 @@ const Recommended = () => {
       )}
 
       {/* See more and Shop all Links */}
-      <div className="flex pt-5 underline items-center justify-center">
+      <div className="flex pt-5 pb-10 underline items-center justify-center">
         <Link to={'/books'} className="mx-2 text-[#3e065f] hover:text-[#700b97]">See more Books</Link>
         <div className="w-px h-6 bg-gray-400"></div>
         <Link to={'/books'} className="mx-2 text-[#3e065f] hover:text-[#700b97]">Shop all Books</Link>

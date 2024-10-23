@@ -1,33 +1,41 @@
 import React, { useState, useEffect } from 'react';
-import { FaBook, FaPen, FaTruck } from 'react-icons/fa';
+import { FaBook, FaPen, FaTruck, FaDollarSign } from 'react-icons/fa';
 
 const data = {
-  username: 'munyia', // Added username property
-  profilePicture: 'https://www.w3schools.com/w3images/avatar2.png',
-  purchasedBooks: {
-    total: 10,
-    ebooks: 5,
-    hardcovers: 3,
-    paperbacks: 2,
-  },
-  publishedBooks: 15,
-  ongoingPurchases: [
-    { title: 'React Programming', trackingNumber: '123456' },
-    { title: 'Advanced CSS', trackingNumber: '789012' },
-  ],
-};
-
+    username: 'munyia',
+    profilePicture: 'https://www.w3schools.com/w3images/avatar2.png',
+    purchasedBooks: {
+      total: 10,
+      ebooks: 5,
+      hardcovers: 3,
+      paperbacks: 2,
+    },
+    publishedBooks: {
+      total: 15,
+      books: ['Book One', 'Book Two', 'Book Three'],
+      revenue: 300, // Example revenue in USD
+    },
+    ongoingPurchases: [
+      { title: 'React Programming', trackingNumber: '123456' },
+      { title: 'Advanced CSS', trackingNumber: '789012' },
+    ],
+    vouchers: 50, // Added total voucher amount
+    currency: 'USD', // User's currency
+    conversionRate: 0.85, // Example conversion rate to user’s currency
+  };
+  
 const UserProfile = () => {
   const [userData, setUserData] = useState({
-    username: '', // Update state to include username
+    username: '',
     profilePicture: '',
     purchasedBooks: { total: 0, ebooks: 0, hardcovers: 0, paperbacks: 0 },
-    publishedBooks: 0,
+    publishedBooks: { total: 0, books: [], revenue: 0 },
     ongoingPurchases: [],
+    currency: '',
+    conversionRate: 1,
   });
 
   useEffect(() => {
-    // Simulate fetching data
     setTimeout(() => {
       setUserData(data);
     }, 1000);
@@ -47,12 +55,18 @@ const UserProfile = () => {
     }
   };
 
+  const convertRevenue = (amount, rate) => {
+    return (amount * rate).toFixed(2);
+  };
+
   return (
-    <div className="bg-body bg-bg min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl flex gap-10  mx-auto rounded-lg">
+    <div className="bg-body bg-bg min-h-screen  px-4 sm:px-6 lg:px-8">
+         <p className=' font-bold text-2xl mx-auto  py-5 justify-center text-center'>Profile</p>
+      <div className="max-w-5xl flex gap-10 mx-auto rounded-lg">
         
         {/* Profile Header */}
-        <div className="flex flex-col text-center items-center border border-gray-500 p-6 rounded-2xl space-x-4 ">
+       
+        <div className="flex flex-col text-center items-center border border-gray-500 p-6 rounded-2xl space-x-4">
           <div className="relative w-24 h-24 bg-body rounded-full flex-shrink-0">
             <img 
               src={userData.profilePicture} 
@@ -66,12 +80,12 @@ const UserProfile = () => {
               className="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer" 
             />
           </div>
-          <h1 className="text-base font-bold "> {userData.username}</h1> {/* Updated to use username */}
-          <p className="text-black ">Your account summary and details</p>
+          <h1 className="text-base font-bold">{userData.username}</h1>
+          <p className="text-black">Your account summary and details</p>
         </div>
         
         {/* Dashboard Sections */}
-        <div className="grid border border-gray-500  p-5 rounded-3xl grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid border border-gray-500 p-5 rounded-3xl grid-cols-1 md:grid-cols-3 gap-6">
           
           {/* Purchased Books */}
           <div className="bg-transparent shadow-2xl p-6 rounded-lg">
@@ -93,16 +107,24 @@ const UserProfile = () => {
           </div>
 
           {/* Published Books */}
-          <div className=" bg-transparent shadow-2xl  p-6 rounded-lg">
+          <div className="bg-transparent shadow-2xl p-6 rounded-lg">
             <h2 className="text-xl font-semibold mb-4 flex items-center">
               <FaPen className="text-but mr-2" />
               Published Books
             </h2>
-            <p>Total Published: {userData.publishedBooks}</p>
+            <p>Total Published: {userData.publishedBooks.total}</p>
+            <details>
+              <summary className="cursor-pointer">View Book Names</summary>
+              <ul>
+                {userData.publishedBooks.books.map((book, index) => (
+                  <li key={index}>{book}</li>
+                ))}
+              </ul>
+            </details>
           </div>
 
           {/* Ongoing Purchases */}
-          <div className=" bg-transparent shadow-2xl p-6 rounded-lg">
+          <div className="bg-transparent shadow-2xl p-6 rounded-lg">
             <h2 className="text-xl font-semibold mb-4 flex items-center">
               <FaTruck className="text-but mr-2" />
               Ongoing Purchases
@@ -117,9 +139,33 @@ const UserProfile = () => {
             </ul>
           </div>
         </div>
+
+       
       </div>
-      <div>
-        
+      <div className='flex justify-center items-center pb-10 gap-5 mx-auto'>
+        {/* Revenue Section */}
+        <div className="grid border border-gray-500 p-5 rounded-3xl grid-cols-1 md:grid-cols-1 gap-6 mt-6">
+          <div className="bg-transparent shadow-2xl p-6 rounded-lg">
+            <h2 className="text-xl font-semibold mb-4 flex items-center">
+              <FaDollarSign className="text-but mr-2" />
+              Revenue
+            </h2>
+            <p>
+              Revenue: {convertRevenue(userData.publishedBooks.revenue, userData.conversionRate)} {userData.currency}
+            </p>
+          </div>
+        </div>
+
+        {/* Vouchers Section */}
+        <div className="grid border border-gray-500 p-5 rounded-3xl grid-cols-1 md:grid-cols-1 gap-6 mt-6">
+          <div className="bg-transparent shadow-2xl p-6 rounded-lg">
+            <h2 className="text-xl font-semibold mb-4 flex items-center">
+              <FaDollarSign className="text-but mr-2" />
+              Vouchers
+            </h2>
+            <p>Total Vouchers: {userData.vouchers} {userData.currency}</p> {/* Display total vouchers */}
+          </div>
+        </div>
       </div>
     </div>
   );
