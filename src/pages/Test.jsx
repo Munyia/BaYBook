@@ -4,6 +4,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 
 const Test = () => {
+  const [isTransitioned, setIsTransitioned] = useState(false);
   const [isModalOpen, setModalOpen] = useState(false);
   
 
@@ -22,6 +23,7 @@ const Test = () => {
     setModalOpen(false);
   };
 
+  // Add an effect to handle body overflow
   useEffect(() => {
     const handleBodyOverflow = () => {
       document.body.style.overflow = isModalOpen ? "hidden" : "auto";
@@ -36,13 +38,12 @@ const Test = () => {
   }, [isModalOpen]);
 
   return (
-    <footer className="bg-gray-900 text-gray-300 py-10 px-4 md:px-10 lg:px-20">
+    <footer className="bg-bg z-50  animate-bg-transition py-10 px-4 md:px-10 lg:px-20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* First Column: Quick Links */}
         <div>
           <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
           <ul className="space-y-2">
-            <li><a href="#" className="hover:text-white">Books</a></li>
             <li><a href="#" className="hover:text-white">About</a></li>
             <li><a href="#" className="hover:text-white">Blog</a></li>
             <li><a href="#" className="hover:text-white">Contact Us</a></li>
@@ -56,34 +57,23 @@ const Test = () => {
           <ul className="space-y-2">
             <li><a href="#" className="hover:text-white">Community Guidelines</a></li>
             <li><a href="#" className="hover:text-white">Code of Conduct</a></li>
-            <li><a href="#" className="hover:text-white">How it works</a></li>
+            <li><a href="#" className="hover:text-white">Policy</a></li>
             <li><a href="#" className="hover:text-white">Guarantee Page</a></li>
           </ul>
         </div>
 
         {/* Third Column: Subscriber Section */}
         <div>
-          {/* <h3 className="text-lg font-semibold text-white mb-4">Join Our Community</h3>
-          <div className="flex text-xs md:text-sm gap-2 items-center pl-2">
-            <div className="relative bg-slate-600 rounded-full w-6 h-6">
-              <div className="absolute -left-1/2 bg-red-600 rounded-full w-6 h-6">
-                <div className="absolute -left-1/2 bg-yellow-600 rounded-full w-6 h-6">
-                  <div className="absolute -left-1/2 bg-green-600 rounded-full w-6 h-6"></div>
-                </div>
-              </div>
-            </div>
-            <span className="font-semibold -mr-[6px] text-gray-100">+2,030</span>
-            <span className="text-gray-400">Subscribers</span>
-          </div>
-          <p className="text-sm text-gray-400 mt-4">Stay connected with us by joining our newsletter and following us on social media for the latest updates.</p>
-        */}
-      <div className=" bg-pry text-white  rounded-e-full  p-6 text-left hidden sm:block">
-          <p className=" text-base text-[12px] font-semibold md:font-[700] md:text-[14px]">
-            SUBSCRIBE TO OUR NEWSLETTER
+         
+
+
+
+
+        <div className=" bg-z-50  bg-bg w-[60%]  rounded-e-full  p-6 text-left hidden sm:block">
+          <p className="  text-xs pb-5 font-normal md:font-[700] md:text-[14px]">
+            SUBSCRIBE <br /> TO OUR <br /> NEWSLETTER
           </p>
-          <p className=" text-base font-[400] md:text-[10px] w-4/5 md:w-3/4 my-4">
-            GET UP-TO-DATE INFORMATION ABOUT <span className="text-black"> WORDSMITTERS</span> AND ITS SERVICES
-          </p>
+        
           <span
             onClick={openModal}
             className="p-1 md:p-2 text-base rounded-e-2xl rounded-b-2xl text-sec cursor-pointer bg-pry sm:text-[12px]"
@@ -91,7 +81,8 @@ const Test = () => {
             Subscribe
           </span>
         </div>
-        {isModalOpen && (
+       
+      {isModalOpen && (
         <div
           className={`fixed  flex justify-center items-center left-0 z-50 bottom-0 w-[100vw] h-[100vh] bg-[rgba(0,0,0,0.1)]`}
         >

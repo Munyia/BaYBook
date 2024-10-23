@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter, faYoutube, faInstagram, faFacebook, faTiktok, faWhatsapp, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { useEffect, useState } from 'react';
 
 const Footer = () => {
   const [isTransitioned, setIsTransitioned] = useState(false);
@@ -36,75 +38,42 @@ const Footer = () => {
   }, [isModalOpen]);
 
   return (
-    <footer className="sm:gap-6 relative flex sm:p-16 flex-col bg-bg sm:bg-bg  w-full flex-wrap">
-      {/* this is for mobile version */}
-      <div className=" bg-pry  rounded-2xl items-center  flex flex-col gap-4  mx-auto py-[100px] px-9 text-left w-[96%]  sm:hidden">
-        <p className="font-[500] text-[14px] w-3/4">
-          SUBSCRIBE TO OUR NEWSLETTER
-        </p>
-        <p className="font-[400] text-[10px] w-3/4">
-          GET UP-TO-DATE INFORMATION ABOUT WOODSMITTERS AND ITS SERVICES
-        </p>
-        <div className="h-[38px] flex rounded border border-black">
-          <div className="flex px-2 justify-center items-center">
-            <input
-              type="text"
-              placeholder="YOUR EMAIL"
-              className="text-[12px]"
-            />
-          </div>
-          <div className="flex px-6 justify-center items-center bg-black">
-            <span className="text-[12px] font-normal text-white">
-              SUBSCRIBE
-            </span>
-          </div>
+    <footer className="bg-bg z-50  animate-bg-transition py-10 px-4 md:px-10 lg:px-20">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* First Column: Quick Links */}
+        <div>
+          <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
+          <ul className="space-y-2">
+            <li><a href="#" className="hover:text-white">About</a></li>
+            <li><a href="#" className="hover:text-white">Blog</a></li>
+            <li><a href="#" className="hover:text-white">Contact Us</a></li>
+            <li><a href="#" className="hover:text-white">FAQ</a></li>
+          </ul>
         </div>
-      </div>
-      {/* this is the end of news letter for mobile version */}
-      
-      <div className="flex f-shadow2 pt-11 mt-24 sm:mt-0 sm:pt-0 justify-between sm:my-4 flex-col sm:flex-row items-center sm:items-start">
-        <div className="flex gap-8 sm:gap-4 md:gap-10 w-[70%] flex-col sm:flex-row">
-          <div className="flex w-full flex-col items-center gap-4 sm:text-[10px] md:text-[16px] font-[400] sm:w-[25%] md:w-[20%]">
-           
-          {/* logo */}
-            <p className="hidden sm:block md:text-base  hover:text-sec hover:underline sm:text-[0.5rem]">
-              contact@<span className="text-white">WordSmitters</span>.com
-            </p>
-          </div>
-          <div className="flex justify-between text-base flex-col sm:flex-row gap-8 sm:w-[85%] md:w-1/2 sm:gap-0 text-center sm:text-left">
-            <div className="font-[400] text-base sm:text-[10px] flex flex-col gap-4">
-              <p className="sm:font-[500] sm:text-[10px] font-[600] text-base mb-2">
-                LINKS
-              </p>
-              <Link to={"/books"} className="text-base hover:underline hover:text-sec">Books</Link>
-              <Link to={"/about"} className="text-base hover:text-sec hover:underline">About</Link>
-              <Link className="text-base hover:text-sec hover:underline">Blog</Link>
-              <Link className="text-base hover:text-sec  hover:underline">Contact Us</Link>
-              <Link className="text-base hover:text-sec  hover:underline">FAQ</Link>
-            </div>
-            <div className="font-[400] text-[14px] sm:text-[10px] flex flex-col gap-4">
-              <p className="sm:font-[500] sm:text-[10px] font-[300] text-[12px] mb-2">
-                ETHICAL CODES
-              </p>
-              <Link to={"/community"} className="text-base hover:text-sec hover:underline">Community Guidelines</Link>
-              <Link to={"/conduct"} className="text-base hover:text-sec hover:underline">Code of conduct</Link>
-            </div>
-            <div className="font-[400] text-base sm:text-[10px] flex flex-col gap-4">
-              <p className="sm:font-[500] sm:text-[10px] font-[300] text-base  mb-2">
-                RESOURCES
-              </p>
-              <Link to={"/howitworks"} className="text-base hover:text-sec hover:underline">How it works</Link>
-              <Link to={"/guarantee"} className="text-base hover:text-sec hover:underline">Guarantee Page</Link>
-            </div>
-          </div>
+
+        {/* Second Column: Resources */}
+        <div>
+          <h3 className="text-lg font-semibold text-white mb-4">Resources</h3>
+          <ul className="space-y-2">
+            <li><a href="#" className="hover:text-white">Community Guidelines</a></li>
+            <li><a href="#" className="hover:text-white">Code of Conduct</a></li>
+            <li><a href="#" className="hover:text-white">Policy</a></li>
+            <li><a href="#" className="hover:text-white">Guarantee Page</a></li>
+          </ul>
         </div>
-        <div className=" bg-pry text-white  rounded-e-full  p-6 text-left w-1/4 hidden sm:block">
-          <p className=" text-base text-[12px] font-semibold md:font-[700] md:text-[14px]">
-            SUBSCRIBE TO OUR NEWSLETTER
+
+        {/* Third Column: Subscriber Section */}
+        <div>
+         
+
+
+
+
+        <div className=" bg-z-50  bg-bg w-[60%]  rounded-e-full  p-6 text-left hidden sm:block">
+          <p className="  text-xs pb-5 font-normal md:font-[700] md:text-[14px]">
+            SUBSCRIBE <br /> TO OUR <br /> NEWSLETTER
           </p>
-          <p className=" text-base font-[400] md:text-[10px] w-4/5 md:w-3/4 my-4">
-            GET UP-TO-DATE INFORMATION ABOUT <span className="text-black"> WORDSMITTERS</span> AND ITS SERVICES
-          </p>
+        
           <span
             onClick={openModal}
             className="p-1 md:p-2 text-base rounded-e-2xl rounded-b-2xl text-sec cursor-pointer bg-pry sm:text-[12px]"
@@ -112,23 +81,7 @@ const Footer = () => {
             Subscribe
           </span>
         </div>
-      </div>
-      <hr />
-      <div className="flex flex-col sm:items-center sm:flex-row sm:gap-4 text-[#808080] sm:text-white text-[10px]  font-[400] flexWrap">
-        <div className="flex justify-center hover:text-sec text-base gap-1 items-center w-full my-6 sm:my-0 text-center sm:w-auto">
-          <span className="text-[18px]">&copy;</span>
-          <span className="flex hover:underline"> <p className="text-white">WordSmitters</p>, 2024</span>
-        </div>
-        <div className="flex flex-row gap-4  text-base font-[400] flexWrap justify-center">
-          <Link to={"/privacy"} className="hover:text-sec hover:underline">PRIVACY POLICY</Link>
-          <Link to={"/terms"} className="hover:text-sec">TERMS & CONDITIONS</Link>
-        </div>
-        {/* logo */}
-        <p className=" font-normal text-base text-center text-[#808080] mb-6 sm:hidden">
-          contact@topmeangel.com
-        </p>
-      </div>
-
+       
       {isModalOpen && (
         <div
           className={`fixed  flex justify-center items-center left-0 z-50 bottom-0 w-[100vw] h-[100vh] bg-[rgba(0,0,0,0.1)]`}
@@ -186,8 +139,47 @@ const Footer = () => {
           </div>
         </div>
       )}
+
+        </div>
+      </div>
+
+      {/* Social Media and Copyright Section */}
+      <div className="mt-10 border-t border-gray-700 pt-6">
+        <div className="flex justify-between items-center flex-col md:flex-row">
+          <div className="mb-4 md:mb-0">
+            <p className="text-sm text-gray-400">© 2024 Book App, All Rights Reserved.</p>
+          </div>
+          <div className="flex space-x-4">
+            <a href="https://twitter.com" target="_blank" rel="noreferrer">
+              <FontAwesomeIcon icon={faTwitter} className="text-xl hover:text-blue-500 transition-all duration-200" />
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noreferrer">
+              <FontAwesomeIcon icon={faYoutube} className="text-xl hover:text-red-600 transition-all duration-200" />
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noreferrer">
+              <FontAwesomeIcon icon={faInstagram} className="text-xl hover:text-pink-500 transition-all duration-200" />
+            </a>
+            <a href="https://tiktok.com" target="_blank" rel="noreferrer">
+              <FontAwesomeIcon icon={faTiktok} className="text-xl hover:text-black transition-all duration-200" />
+            </a>
+            <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" target="_blank" rel="noreferrer">
+              <FontAwesomeIcon icon={faWhatsapp} className="text-xl hover:text-green-500 transition-all duration-200" />
+            </a>
+            <a href="mailto:email@example.com" target="_blank" rel="noreferrer">
+              <FontAwesomeIcon icon={faEnvelope} className="text-xl hover:text-red-600 transition-all duration-200" />
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noreferrer">
+              <FontAwesomeIcon icon={faFacebook} className="text-xl hover:text-blue-600 transition-all duration-200" />
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+              <FontAwesomeIcon icon={faLinkedin} className="text-xl hover:text-blue-700 transition-all duration-200" />
+            </a>
+          </div>
+        </div>
+      </div>
     </footer>
   );
 };
 
-export default Footer;
+export default Footer
+;
