@@ -1,5 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import LoginModal from './LoginModal';
+import { useAuth } from '../components/context/AuthContext';
 
 // Mock data for books
 const booksData = [
@@ -19,6 +21,10 @@ const Recommended = () => {
   const scrollRef = useRef(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const [showLoginModal, setShowLoginModal] = useState(false); // State for modal
+  const { isAuthenticated } = useAuth(); // Get authentication status
+
+
 
   const checkScrollPosition = () => {
     const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
@@ -42,11 +48,20 @@ const Recommended = () => {
     return () => refCurrent.removeEventListener('scroll', checkScrollPosition);
   }, []);
 
+  const handleBookClick = (bookId) => {
+    if (isAuthenticated) {
+      // Logic to navigate to the book details
+      history.push(`/book/${bookId}`);
+    } else {
+      setShowLoginModal(true); // Show the login modal instead of an alert
+    }
+  };
+
   return (
     <div className="w-full bg-bg border-y-4 border-pry my-10 border-double p-6 relative">
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-2xl font-bold text-[#8e05c2]">Recommended Books</h2>
-      </div>
+    <div className="flex justify-between items-center mb-4">
+      <h2 className="text-2xl font-bold text-[#8e05c2]">Recommended Books</h2>
+    </div>
 
       {/* Horizontal Scrollable Book Carousel */}
       <div className="relative">
@@ -78,7 +93,8 @@ const Recommended = () => {
               {/* Overlay for text */}
               <div className="absolute bottom-0 inset-x-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white p-2 rounded-b-2xl">
                 <h3 className="text-lg font-semibold">{book.name}</h3>
-                <Link to={`/book/${book.id}`}
+            <button
+                  onClick={() => handleBookClick(book.id)} // Use button for click event
                   className="relative justify-center mx-auto w-fit flex items-center px-4 py-2 overflow-hidden font-base transition-all bg-pry rounded-md group"
                 >
                   <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-black rounded group-hover:-mr-4 group-hover:-mt-4">
@@ -89,7 +105,7 @@ const Recommended = () => {
                   </span>
                   <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-dk-pry1 rounded-md group-hover:translate-x-0"></span>
                   <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-white">{book.shopText}</span>
-                </Link>
+                </button>
               </div>
             </div>
           ))}
@@ -105,6 +121,11 @@ const Recommended = () => {
           </button>
         )}
       </div>
+      
+      {/* Login Modal */}
+      {showLoginModal && (
+        <LoginModal onClose={() => setShowLoginModal(false)} />
+      )}
 
       {/* See more and Shop all Links */}
       <div className="flex pt-5 underline items-center justify-center">

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../components/Header';
 import Popular from '../components/Popular';
 import Recommended from '../components/Recommended';
 import Carousel from '../components/Carousel';
-
+// import { useAuth } from '../context/AuthContext';
+// import LoginModal from '../components/LoginModal';
 
 // Mock data for books
 const carouselData = [
@@ -83,8 +83,22 @@ const carouselData = [
 
 
 const Home = () => {
+  // const { isAuthenticated } = useAuth();
+  // const [showModal, setShowModal] = useState(false);
+
+  // const handleClick = () => {
+  //   if (!isAuthenticated) {
+  //     setShowModal(true);
+  //   } else {
+  //     // Proceed to book details or other action
+  //   }
+  // };
+
   return (
     <div className=" bg-bg  min-h-screen">
+      {/* <Carousel data={carouselData} onClick={handleBookClick} />
+      <Popular onClick={handleBookClick} />
+      <Recommended onClick={handleBookClick} /> */}
       <header className="text-center py-8">
       <div className="relative flex gap-10 mt-[1%] w-[95vw] overflow-hidden">
   {/* Welcome Message - Left Side */}
@@ -252,10 +266,8 @@ const Home = () => {
   ))}
 </Carousel>
 
-
-
-   
       <Popular/>
+      {/* {showModal && <LoginModal onClose={() => setShowModal(false)} />} */}
     </div>
   );
 };

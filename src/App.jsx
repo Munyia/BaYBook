@@ -11,29 +11,30 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 import MouseTrail from './components/MouseTrail'
 import Test from './pages/Test'
-
+import { AuthProvider } from './components/context/AuthContext'  // Import your AuthContext
+import User from './pages/User'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-     <BrowserRouter>
-     <MouseTrail/>
-     <Header/>
-     <Routes>
-     <Route path="/" element={<Home/>} />
-     <Route path="/login" element={<Login/>} />
-     <Route path="/signup" element={<Signup />} />
-     <Route path="/books" element={<Books />} />
-     <Route path="/popular" element={<Popular />} />
-     <Route path="/recommended" element={<Recommended />} />
-     <Route path="/test" element={<Test />} />
-
-     </Routes>
-     <Footer/>
-     </BrowserRouter>
-    </>
+    <AuthProvider> {/* Wrap the app with AuthProvider */}
+      <BrowserRouter>
+        <MouseTrail />
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/books" element={<Books />} />
+          <Route path="/popular" element={<Popular />} />
+          <Route path="/recommended" element={<Recommended />} />
+          <Route path="/test" element={<Test />} />
+          <Route path="/user" element={<User />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    // </AuthProvider>
   )
 }
 

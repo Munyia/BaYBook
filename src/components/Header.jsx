@@ -65,10 +65,6 @@ const Header = () => {
         <Link to={"/books"} className='flex items-center hover:text-xl'>
           <FontAwesomeIcon icon={faBook} className='text-lg' />
         </Link>
-        <Link to={"/community"} className='flex items-center hover:text-xl'>
-          <FontAwesomeIcon icon={faUsers} className='text-lg' />
-        </Link>
-      
         <Link to={"/publish"} className='flex items-center hover:text-xl'>
           <FontAwesomeIcon icon={faPen} className='text-lg' />
         </Link>
@@ -95,8 +91,11 @@ const Header = () => {
       </form>
     )}
   </div>
-        <Link to={"/login"} className='flex items-center hover:text-xl'>
+        <Link to={"/user"} className='flex items-center hover:text-xl'>
           <FontAwesomeIcon icon={faUser} className='text-lg' />
+        </Link>
+        <Link to={"/community"} className='flex items-center hover:text-xl'>
+          <FontAwesomeIcon icon={faUsers} className='text-lg' />
         </Link>
         <Link to={"/cart"} className='flex items-center hover:text-xl'>
           <FontAwesomeIcon icon={faShoppingCart} className='text-lg' />

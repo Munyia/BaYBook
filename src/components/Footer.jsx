@@ -151,28 +151,28 @@ const Footer = () => {
           </div>
           <div className="flex space-x-4">
             <a href="https://twitter.com" target="_blank" rel="noreferrer">
-              <FontAwesomeIcon icon={faTwitter} className="text-xl hover:text-blue-500 transition-all duration-200" />
+              <FontAwesomeIcon icon={faTwitter} className="text-xl hover:text-3xl text-blue-500 transition-all duration-200" />
             </a>
             <a href="https://youtube.com" target="_blank" rel="noreferrer">
-              <FontAwesomeIcon icon={faYoutube} className="text-xl hover:text-red-600 transition-all duration-200" />
+              <FontAwesomeIcon icon={faYoutube} className="text-xl hover:text-3xl text-red-600 transition-all duration-200" />
             </a>
             <a href="https://instagram.com" target="_blank" rel="noreferrer">
-              <FontAwesomeIcon icon={faInstagram} className="text-xl hover:text-pink-500 transition-all duration-200" />
+              <FontAwesomeIcon icon={faInstagram} className="text-xl hover:text-3xl text-pink-700 transition-all duration-200" />
             </a>
             <a href="https://tiktok.com" target="_blank" rel="noreferrer">
-              <FontAwesomeIcon icon={faTiktok} className="text-xl hover:text-black transition-all duration-200" />
+              <FontAwesomeIcon icon={faTiktok} className="text-xl hover:text-3xl text-black transition-all duration-200" />
             </a>
             <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" target="_blank" rel="noreferrer">
-              <FontAwesomeIcon icon={faWhatsapp} className="text-xl hover:text-green-500 transition-all duration-200" />
+              <FontAwesomeIcon icon={faWhatsapp} className="text-xl hover:text-3xl text-green-700 transition-all duration-200" />
             </a>
             <a href="mailto:email@example.com" target="_blank" rel="noreferrer">
-              <FontAwesomeIcon icon={faEnvelope} className="text-xl hover:text-red-600 transition-all duration-200" />
+              <FontAwesomeIcon icon={faEnvelope} className="text-xl hover:text-3xl :text-red-600 transition-all duration-200" />
             </a>
             <a href="https://facebook.com" target="_blank" rel="noreferrer">
-              <FontAwesomeIcon icon={faFacebook} className="text-xl hover:text-blue-600 transition-all duration-200" />
+              <FontAwesomeIcon icon={faFacebook} className="text-xl hover:text-3xl text-blue-600 transition-all duration-200" />
             </a>
             <a href="https://linkedin.com" target="_blank" rel="noreferrer">
-              <FontAwesomeIcon icon={faLinkedin} className="text-xl hover:text-blue-700 transition-all duration-200" />
+              <FontAwesomeIcon icon={faLinkedin} className="text-xl hover:text-3xl text-blue-700 transition-all duration-200" />
             </a>
           </div>
         </div>
