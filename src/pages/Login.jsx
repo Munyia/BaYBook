@@ -26,10 +26,10 @@ const Login = () => {
   };
 
   return (
-    <div className="pb-10 pt-5 px-10 flex gap-5 bg-bg border-y-4 border-pry border-double ">
-     <form
-        className="flex flex-col gap-2 hover:from-[#E6DAFE] hover:to-[#BC20FF] p-4 w-[40%] rounded-3xl font-sans transition duration-300 bg-gradient-to-br from-[#BC20FF] to-[#E6DAFE]"
-        onSubmit={handleSubmit}
+    <div className="pb-10 pt-5 px-10 flex gap-5 bg-bg border-y-4 border-pry border-double">
+    <form
+      className="flex flex-col gap-2 p-4 w-[40%] rounded-3xl font-sans transition duration-300 bg-gradient-to-br from-[#BC20FF] to-[#8318B4]"
+      onSubmit={handleSubmit}
       >   
       {error && <p className="text-red-500 text-xs">{error}</p>}
         <div className="flex flex-col">
@@ -47,6 +47,7 @@ const Login = () => {
             </g>
           </svg>
           <input
+           id="email"
             placeholder="Enter your Email"
             className="  p-2 w-full bg-white transition duration-200 focus:outline-none focus:border-[#AE8DF8] text-xs"
             type="email"
@@ -69,6 +70,7 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
               aria-label="Password"
+              id="password"
             />
                 <button
             type="button"

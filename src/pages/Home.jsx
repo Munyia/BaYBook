@@ -84,16 +84,16 @@ const Home = () => {
   
 
   return (
-    <div className=" bg-bg  min-h-screen">
-        <header className="text-center py-8">
+    <div className=" bg-bg font-play min-h-screen">
+        <header className=" shadow-md py-4 px-6 md:px-10 lg:px-16">
       <div className="relative flex gap-10 mt-[1%] w-[95vw] overflow-hidden">
   {/* Welcome Message - Left Side */}
   <div className="relative z-10 w-3/5 pl-[3%] flex flex-col gap-6">
-    <h1 className="font-extrabold text-pry text-sec text-2xl">
+    <h1 className="text-3xl justify-center text-center font-play text-gray-800">
       Welcome to <span className="text-pry"> WordSmithers</span>
     </h1>
     <div>
-      <p className="text-sec font-mont font-semibold text-lg tracking-wide leading-relaxed font-playfair">
+      <p className="text-sec font-mont font-semibold text-lg tracking-wide leading-relaxed ">
         "Hello and welcome to <span className="text-dk-pry1">WordSmithers</span>, where the magic of Nigerian
         literature comes to life! 📚 Whether you're a passionate reader
         eager to explore the rich tapestry of Nigerian stories or a
@@ -179,7 +179,7 @@ const Home = () => {
 
 
 
-        <p className="text-lg text-dk-pry1 mt-2">Discover your next favorite book!</p>
+        <p className="text-lg justify-center text-center text-dk-pry1 mt-2">Discover your next favorite book!</p>
       </header>
 
       {/* Carousel Section */}
@@ -192,63 +192,54 @@ const Home = () => {
 
 <Carousel autoslide={true} autoslideinterval={3000}>
   {carouselData.map((book) => (
-    <div
-      key={book.id}
-      className="relative  w-full h-[60vh] flex" // Flex layout for side-by-side
-    >
-      {/* Text Container - Left Side */}
-      <div className="relative flex flex-col rounded-3xl justify-between bg-white  flex-1 p-4"> {/* Flex-1 for equal space */}
-        <h1 className="text-black text-2xl  font-[verdana] font-bold mb-2">
-          {book.name} {/* Book title */}
-        </h1>
-        <p className="text-black text-base mb-4">
-          {book.description} {/* Book description */}
-        </p>
-        <div className="space-x-4 font-[verdana]">
-        <Link to={'/books'}
-      className="relative justify-center mx-auto w-fit flex items-center px-4 py-2 overflow-hidden font-medium transition-all bg-pry rounded-md group"
-    >
-      <span
-        className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-black rounded group-hover:-mr-4 group-hover:-mt-4"
-      >
-        <span
-          className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-dk-pry1"
-        ></span>
-      </span>
-      <span
-        className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-black rounded group-hover:-ml-4 group-hover:-mb-4"
-      >
-        <span
-          className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-dk-pry1"
-        ></span>
-      </span>
-      <span
-        className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-dk-pry1 rounded-md group-hover:translate-x-0"
-      ></span>
-      <span
-        className="relative w-full text-xs text-white transition-colors duration-200 ease-in-out group-hover:text-white"
-      >View Details </span>
-    </Link>
-        </div>
-      </div>
-
-      {/* Image Container - Right Side */}
-      <div className="flex-1 rounded-2xl overflow-hidden">  {/* Parent div with rounded corners */}
   <div
-    className="bg-cover bg-center"  // Background image
-    style={{
-      backgroundImage: `url(${book.img})`,
-      backgroundSize: 'contain',
-      backgroundPosition: 'center',
-      height: '100%', 
-      width: '100%',
-      backgroundRepeat: 'no-repeat',
-    }}
-  ></div>
+  key={book.id}
+  className="relative w-full h-[60vh] flex flex-col md:flex-row" // Maintain horizontal layout on small screens
+>
+  {/* Text Container - Left Side */}
+  <div className="relative flex flex-col rounded-3xl justify-between bg-white flex-1 p-4">
+    <h1 className="text-black text-2xl font-[verdana] font-bold mb-2">
+      {book.name} {/* Book title */}
+    </h1>
+    <p className="text-black text-base mb-4">
+      {book.description} {/* Book description */}
+    </p>
+    <div className="space-x-4 font-[verdana]">
+      <Link
+        to={'/books'}
+        className="relative justify-center mx-auto w-fit flex items-center px-4 py-2 overflow-hidden font-medium transition-all bg-pry rounded-md group"
+      >
+        <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-black rounded group-hover:-mr-4 group-hover:-mt-4">
+          <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-dk-pry1"></span>
+        </span>
+        <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-black rounded group-hover:-ml-4 group-hover:-mb-4">
+          <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-dk-pry1"></span>
+        </span>
+        <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-dk-pry1 rounded-md group-hover:translate-x-0"></span>
+        <span className="relative w-full text-xs text-white transition-colors duration-200 ease-in-out group-hover:text-white">
+          View Details
+        </span>
+      </Link>
+    </div>
+  </div>
+
+  {/* Image Container - Right Side */}
+  <div className="flex-1 rounded-2xl overflow-hidden">
+    <div
+      className="bg-cover bg-center"
+      style={{
+        backgroundImage: `url(${book.img})`,
+        backgroundSize: 'contain',
+        backgroundPosition: 'center',
+        height: '100%',
+        width: '100%',
+        backgroundRepeat: 'no-repeat',
+      }}
+    ></div>
+  </div>
 </div>
 
-
-    </div>
+ 
   ))}
 </Carousel>
 

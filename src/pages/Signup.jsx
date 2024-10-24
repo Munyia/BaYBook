@@ -2,8 +2,14 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Signup = () => {
-  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
+  const [email, setEmail] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // State to toggle confirm password visibility
+  const [showPassword, setShowPassword] = useState(false);
+  const [password, setPassword] = useState('');
+
+  
 
   const [formData, setFormData] = useState({
     username: '',
@@ -20,7 +26,10 @@ const Signup = () => {
   });
 
   const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
+    setShowPassword((prev) => !prev);
+  };
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(prev => !prev); // Toggle visibility
   };
 
   const handleChange = (e) => {
@@ -51,9 +60,9 @@ const Signup = () => {
   };
 
   return (
-    <div className='pb-10 relative pt-5 px-10 flex gap-5 bg-bg border-y-4 border-pry border-double'>
+    <div className="pb-10 pt-5 px-10 flex gap-5 bg-bg border-y-4 border-pry border-double">
       <form
-        className="flex flex-col  gap-2 hover:from-[#E6DAFE] hover:to-[#BC20FF] p-4 w-[40%] rounded-3xl font-sans transition duration-300 bg-gradient-to-br from-[#BC20FF] to-[#E6DAFE]"
+        className="flex flex-col gap-2 p-4 w-[40%] rounded-3xl font-sans transition duration-300 bg-gradient-to-br from-[#BC20FF] to-[#8318B4]"
         onSubmit={handleSubmit}
       >
         {error && <p className="text-red-500 text-xs">{error}</p>}
@@ -71,6 +80,7 @@ const Signup = () => {
               placeholder="Enter your First Name"
               className="h-12 p-2 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
               required
+              aria-label="Firstname"
             />
           </div>
 
@@ -85,6 +95,7 @@ const Signup = () => {
               placeholder="Enter your Last Name"
               className="h-12 p-2 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
               required
+               aria-label="Lastname"
             />
           </div>
         </div>
@@ -101,53 +112,131 @@ const Signup = () => {
               placeholder="Enter your Username"
               className="h-12 p-2 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
               required
+               aria-label="Username"
             />
           </div>
+         
+          <div className="flex flex-col w-[48%] relative">
+  <label htmlFor="email" className="text-white text-xs font-semibold">Email</label>
+  <input
+    id="email"
+    name="email"
+    value={formData.email}
+    onChange={handleChange}
+    placeholder="Enter your Email"
+    className="h-12 p-2 pl-10 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
+    type="email"
+    required
+    aria-label="Email"
+  />
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="10"
+    height="10"
+    viewBox="0 0 32 32"
+    className="absolute left-3 top-1/2 transform -translate-y-1/2"
+  >
+    <g data-name="Layer 3" id="Layer_3">
+      <path d="m30.853 13.87a15 15 0 0 0 -29.729 4.082 15.1 15.1 0 0 0 12.876 12.918 15.6 15.6 0 0 0 2.016.13 14.85 14.85 0 0 0 7.715-2.145 1 1 0 1 0 -1.031-1.711 13.007 13.007 0 1 1 5.458-6.529 2.149 2.149 0 0 1 -4.158-.759v-10.856a1 1 0 0 0 -2 0v1.726a8 8 0 1 0 .2 10.325 4.135 4.135 0 0 0 7.83.274 15.2 15.2 0 0 0 .823-7.455zm-14.853 8.13a6 6 0 1 1 6-6 6.006 6.006 0 0 1 -6 6z"></path>
+    </g>
+  </svg>
+</div>
 
-          <div className="flex flex-col w-[48%]">
-            <label htmlFor="email" className="text-white text-xs font-semibold">Email</label>
-            <input
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Enter your Email"
-              className="h-12 p-2 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
-              type="email"
-              required
-            />
-          </div>
         </div>
 
         {/* Password and Confirm Password Inputs */}
         <div className="flex justify-between gap-2">
-          <div className="flex flex-col w-[48%]">
-            <label htmlFor="password" className="text-white text-xs font-semibold">Password</label>
-            <input
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              placeholder="Enter your Password"
-              className="h-12 p-2 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
-              type={showPassword ? 'text' : 'password'}
-              required
-            />
-          </div>
+        <div className="flex flex-col w-[48%] relative">
+  <label htmlFor="password" className="text-white text-xs font-semibold">Email</label>
+  <div className="relative">
+    <input
+      placeholder="Enter your Password"
+      className="h-12 w-full p-2 pr-10 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
+      type={showPassword ? 'text' : 'password'}
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      required
+      aria-label="Password"
+      id="password"
+    />
+    <button
+      type="button"
+      onClick={togglePasswordVisibility}
+      className="absolute inset-y-0 right-0 flex items-center justify-center w-10 h-full p-2"
+    >
+      {showPassword ? (
+        // Eye icon (show password)
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="15"
+          height="15"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path d="M12 4.5C6.75 4.5 2.25 9 2.25 12s4.5 7.5 9.75 7.5c4.5 0 8.25-3.75 8.25-7.5s-3.75-7.5-8.25-7.5zm0 13.5c-3 0-5.25-2.25-5.25-5.25S9 7.5 12 7.5s5.25 2.25 5.25 5.25S15 18 12 18zm0-8.25c-1.5 0-2.75 1.25-2.75 2.75S10.5 15 12 15s2.75-1.25 2.75-2.75S13.5 9.75 12 9.75z" />
+        </svg>
+      ) : (
+        // Padlock icon (hide password)
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="15"
+          viewBox="-64 0 512 512"
+          height="15"
+        >
+          <path d="m336 512h-288c-26.453125 0-48-21.523438-48-48v-224c0-26.476562 21.546875-48 48-48h288c26.453125 0 48 21.523438 48 48v224c0 26.476562-21.546875 48-48 48zm-288-288c-8.8125 0-16 7.167969-16 16v224c0 8.832031 7.1875 16 16 16h288c8.8125 0 16-7.167969 16-16v-224c0-8.832031-7.1875-16-16-16zm0 0"></path>
+          <path d="m304 224c-8.832031 0-16-7.167969-16-16v-80c0-52.929688-43.070312-96-96-96s-96 43.070312-96 96v80c0 8.832031-7.167969 16-16 16s-16-7.167969-16-16v-80c0-70.59375 57.40625-128 128-128s128 57.40625 128 128v80c0 8.832031-7.167969 16-16 16zm0 0"></path>
+        </svg>
+      )}
+    </button>
+  </div>
+</div>
 
-          <div className="flex flex-col w-[48%]">
-            <label htmlFor="confirmPassword" className="text-white text-xs font-semibold">Confirm Password</label>
-            <input
-              id="confirmPassword"
-              name="confirmPassword"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-              placeholder="Confirm your Password"
-              className="h-12 p-2 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
-              type={showPassword ? 'text' : 'password'}
-              required
-            />
-          </div>
+
+<div className="flex flex-col w-[48%] relative">
+  <label htmlFor="confirmpassword" className="text-white text-xs font-semibold">Email</label>
+  <div className="relative">
+  <input
+            id="confirmpassword"
+            placeholder="Confirm your Password"
+            className="h-12 w-full p-2 pr-10 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
+            type={showConfirmPassword ? 'text' : 'password'} // Use the state variable for visibility
+            value={confirmPassword} // This should be a separate state variable
+            onChange={(e) => setConfirmPassword(e.target.value)} // Set the confirm password state
+            required
+            aria-label="Confirm Password"
+          />
+
+<button
+            type="button"
+            onClick={toggleConfirmPasswordVisibility}
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 focus:outline-none"
+            aria-label="Toggle confirm password visibility"
+          >
+            {showConfirmPassword ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+          <path d="M12 4.5C6.75 4.5 2.25 9 2.25 12s4.5 7.5 9.75 7.5c4.5 0 8.25-3.75 8.25-7.5s-3.75-7.5-8.25-7.5zm0 13.5c-3 0-5.25-2.25-5.25-5.25S9 7.5 12 7.5s5.25 2.25 5.25 5.25S15 18 12 18zm0-8.25c-1.5 0-2.75 1.25-2.75 2.75S10.5 15 12 15s2.75-1.25 2.75-2.75S13.5 9.75 12 9.75z" />
+        </svg>
+      ) : (
+        // Padlock icon (hide password)
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="15"
+          viewBox="-64 0 512 512"
+          height="15"
+        >
+          <path d="m336 512h-288c-26.453125 0-48-21.523438-48-48v-224c0-26.476562 21.546875-48 48-48h288c26.453125 0 48 21.523438 48 48v224c0 26.476562-21.546875 48-48 48zm-288-288c-8.8125 0-16 7.167969-16 16v224c0 8.832031 7.1875 16 16 16h288c8.8125 0 16-7.167969 16-16v-224c0-8.832031-7.1875-16-16-16zm0 0"></path>
+          <path d="m304 224c-8.832031 0-16-7.167969-16-16v-80c0-52.929688-43.070312-96-96-96s-96 43.070312-96 96v80c0 8.832031-7.167969 16-16 16s-16-7.167969-16-16v-80c0-70.59375 57.40625-128 128-128s128 57.40625 128 128v80c0 8.832031-7.167969 16-16 16zm0 0"></path>
+        </svg>
+      )}
+    </button>
+  </div>
+</div>
         </div>
 
         {/* Phone Number and Date of Birth Inputs */}
@@ -163,6 +252,7 @@ const Signup = () => {
               className="h-12 p-2 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
               type="tel"
               required
+                aria-label="Phone Number"
             />
           </div>
 
@@ -176,6 +266,7 @@ const Signup = () => {
               className="h-12 p-2 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
               type="date"
               required
+                aria-label="Date of Birth"
             />
           </div>
         </div>
@@ -192,6 +283,7 @@ const Signup = () => {
               placeholder="Enter your Country"
               className="h-12 p-2 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
               required
+                aria-label="Country"
             />
           </div>
 
@@ -205,6 +297,7 @@ const Signup = () => {
               placeholder="Enter your State"
               className="h-12 p-2 border border-gray-300 rounded-full bg-white text-xs focus:outline-none focus:border-[#AE8DF8]"
               required
+               aria-label="State of Resident"
             />
           </div>
         </div>
