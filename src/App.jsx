@@ -17,6 +17,7 @@ import FAQ from './pages/FAQ'
 import About from './pages/About'
 import Blog from './pages/Blog'
 import Contact from './pages/Contact'
+import Category from './components/Categories'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -39,6 +40,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/category" element={<Category />} />
         </Routes>
         <Footer />
       </BrowserRouter>
