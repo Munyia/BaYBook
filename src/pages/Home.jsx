@@ -86,7 +86,7 @@ const Home = () => {
   return (
     <div className=" bg-bg font-play w-full min-h-screen">
 <header className="shadow-md py-4 px-6 md:px-10 lg:px-8">
-  <div className="relative flex flex-col-reverse md:flex-row gap-10 mt-[1%] w-[95vw] overflow-hidden">
+  <div className="relative flex flex-col md:flex-row gap-10 mt-[1%] w-[95vw] overflow-hidden">
     {/* Welcome Message - Left Side */}
     <div className="relative z-10 w-full md:w-3/5 pl-5 flex flex-col gap-6">
       <h1 className="text-3xl justify-center text-center font-play text-gray-800">
