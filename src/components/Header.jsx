@@ -54,7 +54,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div className='animate-bg-transition  text-white sticky top-0 z-50 gap-5 flex w-full h-[13vh] justify-between items-center px-5 sm:px-10' id='Navbar'>
+    <div className='animate-bg-transition text-white sticky top-0 z-50 gap-5 flex w-full h-[13vh] justify-between items-center px-5 sm:px-10' id='Navbar'>
       <div className='w-full flex justify-between items-center max-w-screen-xl mx-auto'>
         {/* Left side links */}
         <div className='w-[40%] sm:w-[30%] flex justify-between'>
@@ -64,12 +64,17 @@ const Header = () => {
           <Link to={"/books"} className='flex items-center hover:text-xl'>
             <FontAwesomeIcon icon={faBook} className='text-lg' />
           </Link>
-          <Link to={"/publish"} className='flex items-center hover:text-xl'>
-            <FontAwesomeIcon icon={faPen} className='text-lg' />
-          </Link>
-          <Link to={"/wittypage"} className='flex items-center hover:text-xl'>
-            <FontAwesomeIcon icon={faPaintBrush} className='text-lg' />
-          </Link>
+          {/* Other links are hidden on mobile */}
+          {!isOpen && (
+            <>
+              <Link to={"/publish"} className='flex items-center hover:text-xl'>
+                <FontAwesomeIcon icon={faPen} className='text-lg' />
+              </Link>
+              <Link to={"/wittypage"} className='flex items-center hover:text-xl'>
+                <FontAwesomeIcon icon={faPaintBrush} className='text-lg' />
+              </Link>
+            </>
+          )}
         </div>
 
         {/* Search and right side icons */}
@@ -94,15 +99,19 @@ const Header = () => {
           </div>
 
           {/* Right side icons */}
-          <Link to={"/user"} className='flex items-center hover:text-xl'>
-            <FontAwesomeIcon icon={faUser} className='text-lg' />
-          </Link>
-          <Link to={"/community"} className='flex items-center hover:text-xl'>
-            <FontAwesomeIcon icon={faUsers} className='text-lg' />
-          </Link>
-          <Link to={"/cart"} className='flex items-center hover:text-xl'>
-            <FontAwesomeIcon icon={faShoppingCart} className='text-lg' />
-          </Link>
+          {!isOpen && (
+            <>
+              <Link to={"/user"} className='flex items-center hover:text-xl'>
+                <FontAwesomeIcon icon={faUser} className='text-lg' />
+              </Link>
+              <Link to={"/community"} className='flex items-center hover:text-xl'>
+                <FontAwesomeIcon icon={faUsers} className='text-lg' />
+              </Link>
+              <Link to={"/cart"} className='flex items-center hover:text-xl'>
+                <FontAwesomeIcon icon={faShoppingCart} className='text-lg' />
+              </Link>
+            </>
+          )}
         </div>
       </div>
 
@@ -113,28 +122,17 @@ const Header = () => {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className='absolute top-[13vh] left-0 w-full animate-bg-transition  flex flex-col items-center py-4 space-y-2 sm:hidden'>
+        <div className='absolute top-[13vh] left-0 w-full animate-bg-transition flex flex-col items-center py-4 space-y-2 sm:hidden'>
           <Link to={"/"} className='hover:text-xl'>
             <FontAwesomeIcon icon={faHome} /> Home
           </Link>
           <Link to={"/books"} className='hover:text-xl'>
             <FontAwesomeIcon icon={faBook} /> Books
           </Link>
-          <Link to={"/publish"} className='hover:text-xl'>
-            <FontAwesomeIcon icon={faPen} /> Publish
-          </Link>
-          <Link to={"/wittypage"} className='hover:text-xl'>
-            <FontAwesomeIcon icon={faPaintBrush} /> Witty Page
-          </Link>
           <Link to={"/user"} className='hover:text-xl'>
             <FontAwesomeIcon icon={faUser} /> Profile
           </Link>
-          <Link to={"/community"} className='hover:text-xl'>
-            <FontAwesomeIcon icon={faUsers} /> Community
-          </Link>
-          <Link to={"/cart"} className='hover:text-xl'>
-            <FontAwesomeIcon icon={faShoppingCart} /> Cart
-          </Link>
+          {/* Remove other links from mobile menu */}
         </div>
       )}
     </div>

@@ -15,6 +15,7 @@ import { AuthProvider } from './components/context/AuthContext'  // Import your 
 import User from './pages/User'
 import FAQ from './pages/FAQ'
 import About from './pages/About'
+import Blog from './pages/Blog'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -35,6 +36,7 @@ function App() {
           <Route path="/user" element={<User />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
         </Routes>
         <Footer />
       </BrowserRouter>
