@@ -13,6 +13,8 @@ import MouseTrail from './components/MouseTrail'
 import Test from './pages/Test'
 import { AuthProvider } from './components/context/AuthContext'  // Import your AuthContext
 import User from './pages/User'
+import FAQ from './pages/FAQ'
+import About from './pages/About'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -31,6 +33,8 @@ function App() {
           <Route path="/recommended" element={<Recommended />} />
           <Route path="/test" element={<Test />} />
           <Route path="/user" element={<User />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/about" element={<About />} />
         </Routes>
         <Footer />
       </BrowserRouter>

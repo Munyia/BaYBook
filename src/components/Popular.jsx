@@ -24,8 +24,6 @@ const Popular = () => {
   const [showLoginModal, setShowLoginModal] = useState(false); // State for modal
   const { isAuthenticated } = useAuth(); // Get authentication status
 
-
-
   const checkScrollPosition = () => {
     const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
     setCanScrollLeft(scrollLeft > 0);
@@ -58,10 +56,10 @@ const Popular = () => {
   };
 
   return (
-    <div className="w-full bg-bg border-y-4 border-pry my-10 border-double p-6 relative">
-    <div className="flex justify-between items-center mb-4">
-      <h2 className="text-2xl font-bold text-[#8e05c2]">Recommended Books</h2>
-    </div>
+    <div className="w-full bg-bg border-y-4 font-mont border-pry my-10 border-double p-6 relative">
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-2xl font-bold font-play text-[#8e05c2]">Popular Books</h2>
+      </div>
 
       {/* Horizontal Scrollable Book Carousel */}
       <div className="relative">
@@ -83,17 +81,17 @@ const Popular = () => {
           {booksData.map((book) => (
             <div
               key={book.id}
-              className="relative flex-shrink-0 p-3 border bg-white shadow-slate-900 rounded-2xl w-48 group transition hover:scale-105 shadow-2xl"
+              className="relative flex-shrink-0 p-3 border bg-white shadow-slate-900 rounded-2xl w-48 sm:w-48 md:w-48 lg:w-48 group transition hover:scale-105 shadow-2xl"
             >
               <img
                 src={book.img}
                 alt={book.name}
-                className="w-full rounded-2xl bg-bg h-64 object-cover mb-2"
+                className="w-full rounded-2xl bg-bg h-64 sm:h-64 md:h-64 lg:h-64 object-cover mb-2"
               />
               {/* Overlay for text */}
-              <div className="absolute bottom-0 inset-x-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white p-2 rounded-b-2xl">
-                <h3 className="text-lg font-semibold">{book.name}</h3>
-            <button
+              <div className="absolute bottom-0 inset-x-0 flex flex-col  items-center  bg-black bg-opacity-50 text-white p-2 rounded-b-2xl">
+                <h3 className="text-lg justify-center items-center text-center sm:text-lg md:text-lg lg:text-lg font-semibold">{book.name}</h3>
+                <button
                   onClick={() => handleBookClick(book.id)} // Use button for click event
                   className="relative justify-center mx-auto w-fit flex items-center px-4 py-2 overflow-hidden font-base transition-all bg-pry rounded-md group"
                 >
@@ -121,18 +119,11 @@ const Popular = () => {
           </button>
         )}
       </div>
-      
+
       {/* Login Modal */}
       {showLoginModal && (
         <LoginModal onClose={() => setShowLoginModal(false)} />
       )}
-
-      {/* See more and Shop all Links */}
-      <div className="flex pt-5 underline items-center justify-center">
-        <Link to={'/books'} className="mx-2 text-[#3e065f] hover:text-[#700b97]">See more Books</Link>
-        <div className="w-px h-6 bg-gray-400"></div>
-        <Link to={'/books'} className="mx-2 text-[#3e065f] hover:text-[#700b97]">Shop all Books</Link>
-      </div>
     </div>
   );
 };

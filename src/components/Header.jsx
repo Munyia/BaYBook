@@ -37,7 +37,6 @@ const Header = () => {
     getUserdetails();
   }, []);
 
-  // Close search input and dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (searchRef.current && !searchRef.current.contains(event.target)) {
@@ -54,56 +53,92 @@ const Header = () => {
     };
   }, []);
 
-
   return (
-    <div className='text-white sticky top-0 z-50  animate-bg-transition gap-5 flex w-full h-[13vh] bg- justify-between items-center' id='Navbar'>
-    <div className='flex justify-between items-center w-full max-w-screen-xl mx-auto px-10'>
-      <div className='w-[30%] flex justify-between'>
-        <Link to={"/"} className='flex items-center hover:text-xl'>
-          <FontAwesomeIcon icon={faHome} className='text-lg' />
-        </Link>
-        <Link to={"/books"} className='flex items-center hover:text-xl'>
-          <FontAwesomeIcon icon={faBook} className='text-lg' />
-        </Link>
-        <Link to={"/publish"} className='flex items-center hover:text-xl'>
-          <FontAwesomeIcon icon={faPen} className='text-lg' />
-        </Link>
-        <Link to={"/wittypage"} className='flex items-center hover:text-xl'>
-          <FontAwesomeIcon icon={faPaintBrush} className='text-lg' />
-        </Link>
-  
+    <div className='animate-bg-transition  text-white sticky top-0 z-50 gap-5 flex w-full h-[13vh] justify-between items-center px-5 sm:px-10' id='Navbar'>
+      <div className='w-full flex justify-between items-center max-w-screen-xl mx-auto'>
+        {/* Left side links */}
+        <div className='w-[40%] sm:w-[30%] flex justify-between'>
+          <Link to={"/"} className='flex items-center hover:text-xl'>
+            <FontAwesomeIcon icon={faHome} className='text-lg' />
+          </Link>
+          <Link to={"/books"} className='flex items-center hover:text-xl'>
+            <FontAwesomeIcon icon={faBook} className='text-lg' />
+          </Link>
+          <Link to={"/publish"} className='flex items-center hover:text-xl'>
+            <FontAwesomeIcon icon={faPen} className='text-lg' />
+          </Link>
+          <Link to={"/wittypage"} className='flex items-center hover:text-xl'>
+            <FontAwesomeIcon icon={faPaintBrush} className='text-lg' />
+          </Link>
         </div>
-        <div className='w-[20%] flex justify-between'>    
-        <div className="relative" ref={searchRef}>
-    <button onClick={() => setShowSearch(!showSearch)} className="flex items-center">
-      <FontAwesomeIcon icon={faSearch} className='text-lg' />
-    </button>
-    {showSearch && (
-      <form onSubmit={handleSubmit} className="absolute left-0 mt-2">
-        <input
-          type="text"
-          autoComplete="off"
-          value={searchContent}
-          onChange={(e) => setSearchContent(e.target.value)}
-          className="border-none outline-none rounded-2xl p-4 bg-white text-black"
-          placeholder="Search by author, title, year..."
-        />
-      </form>
-    )}
-  </div>
-        <Link to={"/user"} className='flex items-center hover:text-xl'>
-          <FontAwesomeIcon icon={faUser} className='text-lg' />
-        </Link>
-        <Link to={"/community"} className='flex items-center hover:text-xl'>
-          <FontAwesomeIcon icon={faUsers} className='text-lg' />
-        </Link>
-        <Link to={"/cart"} className='flex items-center hover:text-xl'>
-          <FontAwesomeIcon icon={faShoppingCart} className='text-lg' />
-        </Link>
+
+        {/* Search and right side icons */}
+        <div className='flex w-[50%] sm:w-[20%] justify-between items-center'>
+          {/* Search functionality */}
+          <div className="relative" ref={searchRef}>
+            <button onClick={() => setShowSearch(!showSearch)} className="flex items-center">
+              <FontAwesomeIcon icon={faSearch} className='text-lg' />
+            </button>
+            {showSearch && (
+              <form onSubmit={handleSubmit} className="absolute left-0 mt-2 w-[200px] sm:w-[250px]">
+                <input
+                  type="text"
+                  autoComplete="off"
+                  value={searchContent}
+                  onChange={(e) => setSearchContent(e.target.value)}
+                  className="border-none outline-none rounded-lg p-2 bg-white text-black w-full"
+                  placeholder="Search by author, title..."
+                />
+              </form>
+            )}
+          </div>
+
+          {/* Right side icons */}
+          <Link to={"/user"} className='flex items-center hover:text-xl'>
+            <FontAwesomeIcon icon={faUser} className='text-lg' />
+          </Link>
+          <Link to={"/community"} className='flex items-center hover:text-xl'>
+            <FontAwesomeIcon icon={faUsers} className='text-lg' />
+          </Link>
+          <Link to={"/cart"} className='flex items-center hover:text-xl'>
+            <FontAwesomeIcon icon={faShoppingCart} className='text-lg' />
+          </Link>
         </div>
       </div>
- </div>
-  )
-}
 
-export default Header
+      {/* Hamburger menu for smaller screens */}
+      <div className='sm:hidden flex items-center'>
+        <Hamburger toggled={isOpen} toggle={setOpen} />
+      </div>
+
+      {/* Mobile menu */}
+      {isOpen && (
+        <div className='absolute top-[13vh] left-0 w-full animate-bg-transition  flex flex-col items-center py-4 space-y-2 sm:hidden'>
+          <Link to={"/"} className='hover:text-xl'>
+            <FontAwesomeIcon icon={faHome} /> Home
+          </Link>
+          <Link to={"/books"} className='hover:text-xl'>
+            <FontAwesomeIcon icon={faBook} /> Books
+          </Link>
+          <Link to={"/publish"} className='hover:text-xl'>
+            <FontAwesomeIcon icon={faPen} /> Publish
+          </Link>
+          <Link to={"/wittypage"} className='hover:text-xl'>
+            <FontAwesomeIcon icon={faPaintBrush} /> Witty Page
+          </Link>
+          <Link to={"/user"} className='hover:text-xl'>
+            <FontAwesomeIcon icon={faUser} /> Profile
+          </Link>
+          <Link to={"/community"} className='hover:text-xl'>
+            <FontAwesomeIcon icon={faUsers} /> Community
+          </Link>
+          <Link to={"/cart"} className='hover:text-xl'>
+            <FontAwesomeIcon icon={faShoppingCart} /> Cart
+          </Link>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Header;

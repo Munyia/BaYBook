@@ -21,13 +21,20 @@ export default {
           '50%': { backgroundColor: '#BC20FF' }, // Midpoint
         },
       },
-      
       fontFamily: {
         mont: ['Montserrat', 'sans-serif'],
         play: ['Playfair Display', 'sans-serif'],
         edu: ['Edu Australia VIC WA NT Hand Guides', ''],
       },
+      backgroundColor: {
+        'glass': 'rgba(255, 255, 255, 0.7)',
+      },
+      backdropFilter: {
+        'blur-10': 'blur(10px)',
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-filters'),
+  ],
 }
