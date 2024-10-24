@@ -59,20 +59,24 @@ const Header = () => {
         {/* Left side links */}
         <div className='w-[40%] sm:w-[30%] flex justify-between'>
           {/* Visible on all devices */}
-          <Link to={"/"} className='flex items-center hover:text-xl'>
+          <Link to={"/"} className='relative flex items-center hover:text-xl group'>
             <FontAwesomeIcon icon={faHome} className='text-lg' />
+            <span className='absolute left-0 transform -translate-x-full bg-gray-800 text-white text-xs rounded px-2 py-1 invisible group-hover:visible transition-all duration-200'>Home</span>
           </Link>
-          <Link to={"/books"} className='flex items-center hover:text-xl'>
+          <Link to={"/books"} className='relative flex items-center hover:text-xl group'>
             <FontAwesomeIcon icon={faBook} className='text-lg' />
+            <span className='absolute left-0 transform -translate-x-full bg-gray-800 text-white text-xs rounded px-2 py-1 invisible group-hover:visible transition-all duration-200'>Books</span>
           </Link>
           {/* Visible only on larger screens */}
           {!isOpen && (
             <>
-              <Link to={"/publish"} className='hidden sm:flex items-center hover:text-xl'>
+              <Link to={"/publish"} className='relative hidden sm:flex items-center hover:text-xl group'>
                 <FontAwesomeIcon icon={faPen} className='text-lg' />
+                <span className='absolute left-0 transform -translate-x-full bg-gray-800 text-white text-xs rounded px-2 py-1 invisible group-hover:visible transition-all duration-200'>Publish</span>
               </Link>
-              <Link to={"/wittypage"} className='hidden sm:flex items-center hover:text-xl'>
+              <Link to={"/wittypage"} className='relative hidden sm:flex items-center hover:text-xl group'>
                 <FontAwesomeIcon icon={faPaintBrush} className='text-lg' />
+                <span className='absolute left-0 transform -translate-x-full bg-gray-800 text-white text-xs rounded px-2 py-1 invisible group-hover:visible transition-all duration-200'>Witty Page</span>
               </Link>
             </>
           )}
@@ -102,14 +106,17 @@ const Header = () => {
           {/* Right side icons - visible only on larger screens */}
           {!isOpen && (
             <>
-              <Link to={"/user"} className='hidden sm:flex items-center hover:text-xl'>
+              <Link to={"/user"} className='relative hidden sm:flex items-center hover:text-xl group'>
                 <FontAwesomeIcon icon={faUser} className='text-lg' />
+                <span className='absolute left-0 transform -translate-x-full bg-gray-800 text-white text-xs rounded px-2 py-1 invisible group-hover:visible transition-all duration-200'>Profile</span>
               </Link>
-              <Link to={"/community"} className='hidden sm:flex items-center hover:text-xl'>
+              <Link to={"/community"} className='relative hidden sm:flex items-center hover:text-xl group'>
                 <FontAwesomeIcon icon={faUsers} className='text-lg' />
+                <span className='absolute left-0 transform -translate-x-full bg-gray-800 text-white text-xs rounded px-2 py-1 invisible group-hover:visible transition-all duration-200'>Community</span>
               </Link>
-              <Link to={"/cart"} className='hidden sm:flex items-center hover:text-xl'>
+              <Link to={"/cart"} className='relative hidden sm:flex items-center hover:text-xl group'>
                 <FontAwesomeIcon icon={faShoppingCart} className='text-lg' />
+                <span className='absolute left-0 transform -translate-x-full bg-gray-800 text-white text-xs rounded px-2 py-1 invisible group-hover:visible transition-all duration-200'>Cart</span>
               </Link>
             </>
           )}

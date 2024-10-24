@@ -18,6 +18,7 @@ import About from './pages/About'
 import Blog from './pages/Blog'
 import Contact from './pages/Contact'
 import Category from './components/Categories'
+import Community from './pages/Community'
 
 
 const ScrollToTop = () => {
@@ -53,6 +54,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/category" element={<Category />} />
+          <Route path="/community" element={<Community />} />
         </Routes>
         <Footer />
       </BrowserRouter>
