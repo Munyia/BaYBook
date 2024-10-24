@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
@@ -19,13 +19,25 @@ import Blog from './pages/Blog'
 import Contact from './pages/Contact'
 import Category from './components/Categories'
 
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 function App() {
   const [count, setCount] = useState(0)
+
 
   return (
     <AuthProvider> {/* Wrap the app with AuthProvider */}
       <BrowserRouter>
         <MouseTrail />
+        <ScrollToTop />
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
