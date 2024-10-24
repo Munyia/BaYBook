@@ -58,19 +58,20 @@ const Header = () => {
       <div className='w-full flex justify-between items-center max-w-screen-xl mx-auto'>
         {/* Left side links */}
         <div className='w-[40%] sm:w-[30%] flex justify-between'>
+          {/* Visible on all devices */}
           <Link to={"/"} className='flex items-center hover:text-xl'>
             <FontAwesomeIcon icon={faHome} className='text-lg' />
           </Link>
           <Link to={"/books"} className='flex items-center hover:text-xl'>
             <FontAwesomeIcon icon={faBook} className='text-lg' />
           </Link>
-          {/* Other links are hidden on mobile */}
+          {/* Visible only on larger screens */}
           {!isOpen && (
             <>
-              <Link to={"/publish"} className='flex items-center hover:text-xl'>
+              <Link to={"/publish"} className='hidden sm:flex items-center hover:text-xl'>
                 <FontAwesomeIcon icon={faPen} className='text-lg' />
               </Link>
-              <Link to={"/wittypage"} className='flex items-center hover:text-xl'>
+              <Link to={"/wittypage"} className='hidden sm:flex items-center hover:text-xl'>
                 <FontAwesomeIcon icon={faPaintBrush} className='text-lg' />
               </Link>
             </>
@@ -98,16 +99,16 @@ const Header = () => {
             )}
           </div>
 
-          {/* Right side icons */}
+          {/* Right side icons - visible only on larger screens */}
           {!isOpen && (
             <>
-              <Link to={"/user"} className='flex items-center hover:text-xl'>
+              <Link to={"/user"} className='hidden sm:flex items-center hover:text-xl'>
                 <FontAwesomeIcon icon={faUser} className='text-lg' />
               </Link>
-              <Link to={"/community"} className='flex items-center hover:text-xl'>
+              <Link to={"/community"} className='hidden sm:flex items-center hover:text-xl'>
                 <FontAwesomeIcon icon={faUsers} className='text-lg' />
               </Link>
-              <Link to={"/cart"} className='flex items-center hover:text-xl'>
+              <Link to={"/cart"} className='hidden sm:flex items-center hover:text-xl'>
                 <FontAwesomeIcon icon={faShoppingCart} className='text-lg' />
               </Link>
             </>
@@ -132,7 +133,18 @@ const Header = () => {
           <Link to={"/user"} className='hover:text-xl'>
             <FontAwesomeIcon icon={faUser} /> Profile
           </Link>
-          {/* Remove other links from mobile menu */}
+          <Link to={"/community"} className='hover:text-xl'>
+            <FontAwesomeIcon icon={faUsers} /> Community
+          </Link>
+          <Link to={"/cart"} className='hover:text-xl'>
+            <FontAwesomeIcon icon={faShoppingCart} /> Cart
+          </Link>
+          <Link to={"/publish"} className='hover:text-xl'>
+            <FontAwesomeIcon icon={faPen} /> Publish
+          </Link>
+          <Link to={"/wittypage"} className='hover:text-xl'>
+            <FontAwesomeIcon icon={faPaintBrush} /> Witty Page
+          </Link>
         </div>
       )}
     </div>

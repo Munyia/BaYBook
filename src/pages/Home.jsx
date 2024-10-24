@@ -85,100 +85,98 @@ const Home = () => {
 
   return (
     <div className=" bg-bg font-play w-full min-h-screen">
-        <header className=" shadow-md py-4 px-6 md:px-10 lg:px-8">
-        <div className="relative flex flex-col-reverse md:flex-row gap-10 mt-[1%] w-[95vw] overflow-hidden">
-  {/* Welcome Message - Left Side */}
-  <div className="relative z-10 w-full md:w-3/5 pl-5  flex flex-col gap-6">
-    <h1 className="text-3xl justify-center text-center font-play text-gray-800">
-      Welcome to <span className="text-pry"> WordSmithers</span>
-    </h1>
-    <div>
-      <p className="text-sec font-mont font-semibold text-lg tracking-wide leading-relaxed ">
-        "Hello and welcome to <span className="text-dk-pry1">WordSmithers</span>, where the magic of Nigerian
-        literature comes to life! 📚 Whether you're a passionate reader
-        eager to explore the rich tapestry of Nigerian stories or a
-        talented writer looking to share your own narrative, you've found
-        the perfect place to connect, inspire, and celebrate the beauty of
-        our diverse literary landscape."
-      </p>
+<header className="shadow-md py-4 px-6 md:px-10 lg:px-8">
+  <div className="relative flex flex-col-reverse md:flex-row gap-10 mt-[1%] w-[95vw] overflow-hidden">
+    {/* Welcome Message - Left Side */}
+    <div className="relative z-10 w-full md:w-3/5 pl-5 flex flex-col gap-6">
+      <h1 className="text-3xl justify-center text-center font-play text-gray-800">
+        Welcome to <span className="text-pry">WordSmithers</span>
+      </h1>
+      <div>
+        <p className="text-sec font-mont font-semibold text-lg tracking-wide leading-relaxed ">
+          "Hello and welcome to <span className="text-dk-pry1">WordSmithers</span>, where the magic of Nigerian
+          literature comes to life! 📚 Whether you're a passionate reader
+          eager to explore the rich tapestry of Nigerian stories or a
+          talented writer looking to share your own narrative, you've found
+          the perfect place to connect, inspire, and celebrate the beauty of
+          our diverse literary landscape."
+        </p>
+      </div>
+      <Link
+        to={'/books'}
+        className="relative justify-center mx-auto w-fit flex items-center px-6 py-3 overflow-hidden font-medium transition-all bg-pry rounded-md group"
+      >
+        <span
+          className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-black rounded group-hover:-mr-4 group-hover:-mt-4"
+        >
+          <span
+            className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-dk-pry1"
+          ></span>
+        </span>
+        <span
+          className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-black rounded group-hover:-ml-4 group-hover:-mb-4"
+        >
+          <span
+            className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-dk-pry1"
+          ></span>
+        </span>
+        <span
+          className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-dk-pry1 rounded-md group-hover:translate-x-0"
+        ></span>
+        <span
+          className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-white"
+        >Start Reading </span>
+      </Link>
     </div>
 
-    <Link to={'/books'}
-      className="relative justify-center mx-auto w-fit flex items-center px-6 py-3 overflow-hidden font-medium transition-all bg-pry rounded-md group"
-    >
-      <span
-        className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-black rounded group-hover:-mr-4 group-hover:-mt-4"
-      >
-        <span
-          className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-dk-pry1"
-        ></span>
-      </span>
-      <span
-        className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-black rounded group-hover:-ml-4 group-hover:-mb-4"
-      >
-        <span
-          className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-dk-pry1"
-        ></span>
-      </span>
-      <span
-        className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-dk-pry1 rounded-md group-hover:translate-x-0"
-      ></span>
-      <span
-        className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-white"
-      >Start Reading </span>
-    </Link>
-  </div>
+    {/* Carousel - Right Side */}
+    <div className="relative my-auto rounded-3xl mr-5 w-full md:w-2/5 overflow-hidden">
+      <div className="relative w-full bg-pry shadow-2xl shadow-pry1 overflow-hidden">
+        <div className="flex animate-continuous-carousel shadow-2xl shadow-pry1 bg-pry p-5 gap-5">
+          {/* Original set of images */}
+          {[
+            'https://img.freepik.com/premium-photo/african-couple-traditional-attire-illustration-generative-ai_899948-6322.jpg',
+            'https://img.freepik.com/premium-photo/african-people-celebrating-traditional-event_899948-6321.jpg',
+            'https://img.freepik.com/premium-photo/african-woman-wearing-colorful-clothes_899948-6323.jpg',
+            'https://img.freepik.com/premium-photo/african-people-traditional-dance-celebration_899948-6324.jpg',
+            'https://img.freepik.com/premium-photo/african-people-family-reunion-illustration-generative-ai_899948-6325.jpg',
+            'https://img.freepik.com/premium-photo/african-woman-reading-book-afternoon_899948-6326.jpg',
+          ].map((image, index) => (
+            <div key={index} className="flex-shrink-0 w-[150px] h-[40vh] md:w-[200px] md:h-[60vh]">
+              <img
+                src={image}
+                className="w-full h-full rounded-3xl shadow-2xl shadow-gray-900 object-cover"
+                alt={`carousel-${index}`}
+              />
+            </div>
+          ))}
 
-  {/* Carousel - Right Side */}
-  <div className="relative my-auto rounded-3xl mr-5   w-full md:w-2/5 overflow-hidden"> {/* Overflow-hidden to keep it within bounds */}
-    <div className="relative w-full bg-pry shadow-2xl shadow-pry1 overflow-hidden">
-      <div className="flex animate-continuous-carousel shadow-2xl shadow-pry1 bg-pry p-5 gap-5">
-        {/* Original set of images */}
-        {[
-          'https://img.freepik.com/premium-photo/african-couple-traditional-attire-illustration-generative-ai_899948-6322.jpg',
-          'https://img.freepik.com/premium-photo/african-people-celebrating-traditional-event_899948-6321.jpg',
-          'https://img.freepik.com/premium-photo/african-woman-wearing-colorful-clothes_899948-6323.jpg',
-          'https://img.freepik.com/premium-photo/african-people-traditional-dance-celebration_899948-6324.jpg',
-          'https://img.freepik.com/premium-photo/african-people-family-reunion-illustration-generative-ai_899948-6325.jpg',
-          'https://img.freepik.com/premium-photo/african-woman-reading-book-afternoon_899948-6326.jpg',
-          // Add more images as needed
-        ].map((image, index) => (
-          <div key={index} className="flex-shrink-0 w-[200px] h-[60vh]">
-            <img
-              src={image}
-              className="w-full h-full rounded-3xl shadow-2xl shadow-gray-900 object-cover"
-              alt={`carousel-${index}`}
-            />
-          </div>
-        ))}
-
-        {/* Duplicate set of images for seamless looping */}
-        {[
-          'https://img.freepik.com/premium-photo/african-couple-traditional-attire-illustration-generative-ai_899948-6322.jpg',
-          'https://img.freepik.com/premium-photo/african-people-celebrating-traditional-event_899948-6321.jpg',
-          'https://img.freepik.com/premium-photo/african-woman-wearing-colorful-clothes_899948-6323.jpg',
-          'https://img.freepik.com/premium-photo/african-people-traditional-dance-celebration_899948-6324.jpg',
-          'https://img.freepik.com/premium-photo/african-people-family-reunion-illustration-generative-ai_899948-6325.jpg',
-          'https://img.freepik.com/premium-photo/african-woman-reading-book-afternoon_899948-6326.jpg',
-          // Add more duplicate images to ensure continuous scrolling
-        ].map((image, index) => (
-          <div key={`duplicate-${index}`} className="flex-shrink-0 w-[200px] h-[60vh]">
-            <img
-              src={image}
-              className="w-full h-full rounded-3xl shadow-2xl shadow-gray-900 object-cover"
-              alt={`carousel-duplicate-${index}`}
-            />
-          </div>
-        ))}
+          {/* Duplicate set of images for seamless looping */}
+          {[
+            'https://img.freepik.com/premium-photo/african-couple-traditional-attire-illustration-generative-ai_899948-6322.jpg',
+            'https://img.freepik.com/premium-photo/african-people-celebrating-traditional-event_899948-6321.jpg',
+            'https://img.freepik.com/premium-photo/african-woman-wearing-colorful-clothes_899948-6323.jpg',
+            'https://img.freepik.com/premium-photo/african-people-traditional-dance-celebration_899948-6324.jpg',
+            'https://img.freepik.com/premium-photo/african-people-family-reunion-illustration-generative-ai_899948-6325.jpg',
+            'https://img.freepik.com/premium-photo/african-woman-reading-book-afternoon_899948-6326.jpg',
+          ].map((image, index) => (
+            <div key={`duplicate-${index}`} className="flex-shrink-0 w-[150px] h-[40vh] md:w-[200px] md:h-[60vh]">
+              <img
+                src={image}
+                className="w-full h-full rounded-3xl shadow-2xl shadow-gray-900 object-cover"
+                alt={`carousel-duplicate-${index}`}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </div>
-</div>
+
+  <p className="text-lg justify-center text-center text-dk-pry1 mt-2">Discover your next favorite book!</p>
+</header>
 
 
-
-        <p className="text-lg justify-center text-center text-dk-pry1 mt-2">Discover your next favorite book!</p>
-      </header>
 
       {/* Carousel Section */}
      <Recommended/>
