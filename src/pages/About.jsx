@@ -43,7 +43,7 @@ const About = () => {
       {/* Services Section */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-5">
         {services.map((service, index) => (
-          <div key={index} className="bg-white rounded-2xl shadow-lg p-6 hover:animate-bg-transition transition-all">
+          <div key={index} className="bg-white rounded-2xl shadow-2xl shadow-slate-900 p-6  transition-all">
             <h2 className="text-2xl font-mont font-semibold mb-4">{service.title}</h2>
             <p>{service.description}</p>
           </div>
@@ -51,11 +51,11 @@ const About = () => {
       </div>
 
       {/* Community Section */}
-      <div className="py-10 animate-bg-transition mx-5 rounded-lg shadow-md p-8 text-center">
+      <div className="py-10 animate-bg-transition mx-5 rounded-lg shadow-2xl shadow-slate-900 p-8 text-center">
         <h2 className="text-3xl font-play mb-6">{community.title}</h2>
         <p className="text-lg pb-5 max-w-xl mx-auto">{community.description}</p>
         <Link to={'/books'}
-          className="relative justify-center mx-auto w-fit flex items-center px-6 py-3 overflow-hidden font-medium transition-all bg-pry rounded-md group"
+          className="relative shadow-2xl shadow-slate-900 justify-center mx-auto w-fit flex items-center px-6 py-3 overflow-hidden font-medium transition-all bg-pry rounded-md group"
         >
           <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-black rounded group-hover:-mr-4 group-hover:-mt-4">
             <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-dk-pry1"></span>

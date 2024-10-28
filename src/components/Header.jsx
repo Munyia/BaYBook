@@ -65,7 +65,7 @@ const Header = () => {
           </Link>
           <Link to={"/books"} className='relative flex items-center hover:text-xl group'>
             <FontAwesomeIcon icon={faBook} className='text-lg' />
-            <span className='absolute left-0 transform -translate-x-full bg-gray-800 text-white text-xs rounded px-2 py-1 invisible group-hover:visible transition-all duration-200'>Books</span>
+            <span className='absolute left-0 transform -translate-x-full bg-gray-800 text-white text-xs rounded px-2 py-1 invisible group-hover:visible transition-all duration-200'>Library</span>
           </Link>
           {/* Visible only on larger screens */}
           {!isOpen && (
@@ -135,7 +135,7 @@ const Header = () => {
             <FontAwesomeIcon icon={faHome} /> Home
           </Link>
           <Link to={"/books"} className='hover:text-xl'>
-            <FontAwesomeIcon icon={faBook} /> Books
+            <FontAwesomeIcon icon={faBook} /> Library
           </Link>
           <Link to={"/user"} className='hover:text-xl'>
             <FontAwesomeIcon icon={faUser} /> Profile

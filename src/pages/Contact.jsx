@@ -96,7 +96,7 @@ const Contact = () => {
 
         {/* Contact Form */}
         <div className="lg:w-1/2">
-          <form className="bg-white p-6 rounded-lg shadow-md mb-6" onSubmit={handleSubmit}>
+          <form className="bg-white p-6 rounded-lg shadow-2xl shadow-slate-900 mb-6" onSubmit={handleSubmit}>
             <h4 className="text-2xl font-play font-bold mb-4">Contact Form</h4>
             <div className="mb-4">
               <label htmlFor="name" className="block text-gray-700 mb-2">Name</label>

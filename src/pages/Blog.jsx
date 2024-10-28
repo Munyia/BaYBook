@@ -51,9 +51,9 @@ const Blog = () => {
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8 flex flex-col lg:flex-row">
         {/* Blog Posts */}
-        <div className="lg:w-3/4">
+        <div className="lg:w-3/4 ">
           {mockData.map(post => (
-            <article key={post.id} className="bg-white p-6 mb-6 rounded-lg shadow-md">
+            <article key={post.id} className="bg-white shadow-2xl shadow-slate-900 p-6 mb-6 rounded-lg ">
               <h2 className="text-2xl font-bold mb-2">{post.title}</h2>
               <p className="text-gray-700 mb-4">
                 {post.excerpt}
@@ -64,7 +64,7 @@ const Blog = () => {
         </div>
 
         <aside className="lg:w-1/4 lg:ml-6">
-          <div className="bg-white p-4 rounded-lg shadow-md mb-6">
+          <div className="bg-white p-4 rounded-lg shadow-2xl shadow-slate-900 mb-6">
             <h3 className="font-bold text-lg mb-2">Categories</h3>
             <ul className="space-y-2">
               {mockCategories.slice(0, showAllCategories ? mockCategories.length : 3).map(category => (
@@ -84,7 +84,7 @@ const Blog = () => {
             </button>
           </div>
 
-          <div className="bg-white p-4 rounded-lg shadow-md mb-6">
+          <div className="bg-white p-4 rounded-lg shadow-2xl shadow-slate-900 mb-6">
             <h3 className="font-bold text-lg mb-2">Recent Posts</h3>
             <ul className="space-y-2">
               {mockData.slice(0, showAllPosts ? mockData.length : 3).map(post => ( // Adjusted for posts
