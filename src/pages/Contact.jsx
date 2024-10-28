@@ -20,6 +20,23 @@ const Contact = () => {
     }));
   };
 
+  // src/data/contactData.js
+const contactInfo = {
+  email: "support@baybook.com",
+  phone: "+1 (234) 567-890",
+  socialLinks: {
+    twitter: "https://twitter.com",
+    youtube: "https://youtube.com",
+    instagram: "https://instagram.com",
+    tiktok: "https://tiktok.com",
+    whatsapp: "https://wa.me/YOUR_WHATSAPP_NUMBER",
+    email: "mailto:email@example.com",
+    facebook: "https://facebook.com",
+    linkedin: "https://linkedin.com"
+  }
+};
+
+
   const validateForm = () => {
     const newErrors = {};
     if (!formData.name) newErrors.name = "Name is required.";
@@ -55,16 +72,17 @@ const Contact = () => {
       <div className="container mx-auto px-4 py-8 flex flex-col lg:flex-row">
         {/* Contact Information */}
         <div className="lg:w-1/2 lg:mr-6">
-          <div className="bg-white p-6 rounded-lg shadow-md mb-6">
-            <h4 className="text-2xl font-play font-bold mb-4">Get in Touch</h4>
+          <div className="bg-white p-6 rounded-lg shadow-2xl shadow-slate-900 mb-6">
+          <h4 className="text-2xl font-play font-bold mb-4">Get in Touch</h4>
             <p className="text-gray-700 mb-4">
               Have questions or need assistance? We're here to help! Reach out to us through the contact form or use the information below.
             </p>
             <h5 className="font-bold">Email:</h5>
-            <p className="text-gray-700 mb-2">support@baybook.com</p>
+            <p className="text-gray-700 mb-2">{contactInfo.email}</p>
             <h5 className="font-bold">Phone:</h5>
-            <p className="text-gray-700">+1 (234) 567-890</p>
+            <p className="text-gray-700">{contactInfo.phone}</p>
             <h5 className="font-bold mb-2 mt-4">Follow Us:</h5>
+
             <div className="flex space-x-4">
             <a href="https://twitter.com" target="_blank" rel="noreferrer">
               <FontAwesomeIcon icon={faTwitter} className="text-xl hover:text-3xl text-blue-500 transition-all duration-200" />

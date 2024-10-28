@@ -29,15 +29,15 @@ const Code = () => {
 
       <div className="max-w-4xl mx-auto space-y-10">
         {/* Purpose */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-white p-6 rounded-lg shadow-2xl shadow-slate-900">
           <h2 className="text-2xl font-semibold mb-4">Purpose</h2>
-          <p className="text-gray-700">{code.purpose}</p>
+          <p className="">{code.purpose}</p>
         </div>
 
         {/* Expected Behavior */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-white p-6 rounded-lg shadow-2xl shadow-slate-900">
           <h2 className="text-2xl font-semibold mb-4">Expected Behavior</h2>
-          <ul className="list-disc list-inside text-gray-700 space-y-2">
+          <ul className="list-disc list-inside  space-y-2">
             {code.expectedBehavior.map((behavior, index) => (
               <li key={index}>{behavior}</li>
             ))}
@@ -45,9 +45,9 @@ const Code = () => {
         </div>
 
         {/* Unacceptable Behavior */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-white p-6 rounded-lg shadow-2xl shadow-slate-900">
           <h2 className="text-2xl font-semibold mb-4">Unacceptable Behavior</h2>
-          <ul className="list-disc list-inside text-gray-700 space-y-2">
+          <ul className="list-disc list-inside space-y-2">
             {code.unacceptableBehavior.map((behavior, index) => (
               <li key={index}>{behavior}</li>
             ))}
@@ -55,15 +55,15 @@ const Code = () => {
         </div>
 
         {/* Reporting Violations */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-white p-6 rounded-lg shadow-2xl shadow-slate-900">
           <h2 className="text-2xl font-semibold mb-4">Reporting Violations</h2>
-          <p className="text-gray-700">{code.reportingViolations}</p>
+          <p className="">{code.reportingViolations}</p>
         </div>
 
         {/* Conclusion */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-white p-6 rounded-lg shadow-2xl shadow-slate-900">
           <h2 className="text-2xl font-semibold mb-4">Conclusion</h2>
-          <p className="text-gray-700">{code.conclusion}</p>
+          <p className="">{code.conclusion}</p>
         </div>
       </div>
     </div>

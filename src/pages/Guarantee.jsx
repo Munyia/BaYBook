@@ -35,25 +35,25 @@ const Guarantee = () => {
     <div className="bg-bg font-play min-h-screen py-4 px-5">
       <div className="max-w-5xl mx-auto p-4 md:p-12 space-y-8">
         {/* Title */}
-        <div className="bg-white rounded-lg shadow-md p-6 text-center">
+        <div className="bg-white rounded-lg shadow-2xl shadow-slate-900 p-6 text-center">
           <h1 className="text-3xl font-bold mb-4">{data.title}</h1>
-          <p className="text-gray-900 text-lg">{data.introduction}</p>
+          <p className=" text-lg">{data.introduction}</p>
         </div>
 
         {/* Guarantees */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {data.guarantees.map((guarantee, index) => (
-            <div key={index} className="bg-white rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow duration-300">
+            <div key={index} className="bg-white rounded-lg p-6 shadow-2xl shadow-slate-900 hover:shadow-xl transition-shadow duration-300">
               <h2 className="text-xl font-semibold">{guarantee.title}</h2>
-              <p className="mt-2 text-gray-700">{guarantee.description}</p>
+              <p className="mt-2 ">{guarantee.description}</p>
             </div>
           ))}
         </div>
 
         {/* Conclusion */}
-        <div className="bg-white rounded-lg shadow-md p-6 text-center">
+        <div className="bg-white rounded-lg shadow-2xl shadow-slate-900 p-6 text-center">
           <h2 className="text-2xl font-bold mb-4">Your Satisfaction is Our Priority</h2>
-          <p className="text-gray-700">{data.conclusion}</p>
+          <p className="">{data.conclusion}</p>
         </div>
       </div>
     </div>

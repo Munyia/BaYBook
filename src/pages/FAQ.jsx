@@ -53,7 +53,7 @@ const FAQ = () => {
 
   return (
     <div className="bg-bg py-10 min-h-screen font-play">
-      <div className="max-w-4xl bg-glass rounded-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl bg-glass shadow-2xl shadow-slate-900 rounded-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <h3 className="text-3xl sm:text-4xl pt-5 font-play font-bold text-center mb-6 text-black">
           Frequently Asked Questions
         </h3>
@@ -61,7 +61,7 @@ const FAQ = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-opacity-70 backdrop-blur-md border border-gray-200 rounded-2xl p-5 transition-all duration-300 shadow-md hover:shadow-lg"
+              className="bg-opacity-70 backdrop-blur-md border border-gray-200 rounded-2xl p-5 transition-all duration-300 shadow-2xl shadow-slate-900 hover:shadow-lg"
             >
               <div
                 className="flex justify-between cursor-pointer"

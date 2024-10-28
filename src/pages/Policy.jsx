@@ -33,15 +33,15 @@ const Policy = () => {
 
       <div className="max-w-4xl mx-auto space-y-10">
         {/* Introduction */}
-        <div className="bg-white font-play p-6 rounded-lg shadow-md">
+        <div className="bg-white font-play p-6 rounded-lg shadow-2xl shadow-slate-900">
           <h2 className="text-2xl font-semibold mb-4">Introduction</h2>
-          <p className="text-gray-700">{policy.introduction}</p>
+          <p className="">{policy.introduction}</p>
         </div>
 
         {/* Data Collection */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-white p-6 rounded-lg shadow-2xl shadow-slate-900">
           <h2 className="text-2xl font-semibold mb-4">Data Collection</h2>
-          <ul className="list-disc list-inside text-gray-700 space-y-2">
+          <ul className="list-disc list-inside  space-y-2">
             {policy.dataCollection.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
@@ -49,9 +49,9 @@ const Policy = () => {
         </div>
 
         {/* Data Usage */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-white p-6 rounded-lg shadow-2xl shadow-slate-900">
           <h2 className="text-2xl font-semibold mb-4">Data Usage</h2>
-          <ul className="list-disc list-inside text-gray-700 space-y-2">
+          <ul className="list-disc list-inside space-y-2">
             {policy.dataUsage.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
@@ -59,9 +59,9 @@ const Policy = () => {
         </div>
 
         {/* Data Protection */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-white p-6 rounded-lg shadow-2xl shadow-slate-900">
           <h2 className="text-2xl font-semibold mb-4">Data Protection</h2>
-          <ul className="list-disc list-inside text-gray-700 space-y-2">
+          <ul className="list-disc list-inside space-y-2">
             {policy.dataProtection.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
@@ -69,9 +69,9 @@ const Policy = () => {
         </div>
 
         {/* User Rights */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-white p-6 rounded-lg shadow-2xl shadow-slate-900">
           <h2 className="text-2xl font-semibold mb-4">User Rights</h2>
-          <ul className="list-disc list-inside text-gray-700 space-y-2">
+          <ul className="list-disc list-inside pace-y-2">
             {policy.userRights.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
@@ -79,9 +79,9 @@ const Policy = () => {
         </div>
 
         {/* Conclusion */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-white p-6 rounded-lg shadow-2xl shadow-slate-900">
           <h2 className="text-2xl font-semibold mb-4">Conclusion</h2>
-          <p className="text-gray-700">{policy.conclusion}</p>
+          <p className="">{policy.conclusion}</p>
         </div>
       </div>
     </div>

@@ -31,34 +31,34 @@ const Community = () => {
   };
 
   return (
-    <div className="bg-bg font-play min-h-screen py-4 px-5">
+    <div className="bg-bg  font-play min-h-screen py-4 px-5">
       <div className="max-w-5xl mx-auto p-4 md:p-12 space-y-8">
         {/* Title */}
-        <div className="bg-white rounded-lg shadow-md p-6 text-center">
+        <div className=" p-6 text-center">
           <h1 className="text-2xl font-bold mb-4">{data.title}</h1>
-          <p className="text-gray-900 text-lg">{data.introduction}</p>
+          <p className=" text-lg">{data.introduction}</p>
         </div>
 
         {/* Guidelines */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {data.guidelines.map((guideline, index) => (
-            <div key={index} className="bg-white rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow duration-300">
+            <div key={index} className="bg-white rounded-lg p-6 shadow-2xl shadow-slate-900 hover:shadow-xl transition-shadow duration-300">
               <h2 className="text-xl font-semibold">{guideline.title}</h2>
-              <p className="mt-2 text-gray-700">{guideline.description}</p>
+              <p className="mt-2 ">{guideline.description}</p>
             </div>
           ))}
         </div>
 
         {/* Consequences */}
-        <div className="bg-white rounded-lg shadow-md p-6">
+        <div className="bg-white shadow-2xl shadow-slate-900 rounded-lg  p-6">
           <h2 className="text-2xl font-bold mb-4">⚠️ Consequences</h2>
-          <p className="text-gray-700">{data.consequences}</p>
+          <p className="">{data.consequences}</p>
         </div>
 
         {/* Message */}
-        <div className="bg-white rounded-lg shadow-md p-6 text-center">
+        <div className=" p-6 text-center">
           <h2 className="text-2xl font-bold mb-4">🎉 Thank You!</h2>
-          <p className="text-gray-700">{data.message}</p>
+          <p className="">{data.message}</p>
         </div>
       </div>
     </div>
