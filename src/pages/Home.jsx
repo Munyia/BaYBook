@@ -206,40 +206,55 @@ const Home = () => {
   {carouselData.map((book) => (
     <div
       key={book.id}
-      className="relative w-full flex flex-col sm:flex-row mb-4 p-2 sm:h-[60vh]" // Adds padding and adjusts height for mobile
+      className="relative  w-full h-[60vh] flex flex-col md:flex-row mb-4 px-2" // Add padding on the sides to keep content aligned
     >
       {/* Card Container */}
-      <div className="flex flex-col justify-between rounded-3xl bg-white flex-1 p-4 shadow-lg mx-2">
-        {/* Show only title and image on small screens */}
-        <h1 className="text-black text-2xl font-play font-bold mb-2 sm:text-lg">
-          {book.name}
+      <div className="flex flex-col justify-between rounded-3xl bg-white flex-1 p-4 shadow-lg mx-2"> {/* Add margin on x-axis */}
+        {/* Text Container - Left Side */}
+        <h1 className="text-black text-2xl font-play font-bold mb-2">
+          {book.name} {/* Book title */}
         </h1>
-        <p className="text-black text-base mb-4 hidden sm:block">
-          {book.description}
+        <p className="text-black text-base mb-4">
+          {book.description} {/* Book description */}
         </p>
-        <div className="space-x-4 font-play hidden sm:flex">
+        
+        <div className="space-x-4 font-play">
           <Link
             to={'/books'}
-            className="relative mx-auto w-fit flex items-center px-4 py-2 font-medium bg-pry rounded-md group"
+            className="relative justify-center mx-auto w-fit flex items-center px-4 py-2 overflow-hidden font-medium transition-all bg-pry rounded-md group"
           >
-            View Details
+            <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-black rounded group-hover:-mr-4 group-hover:-mt-4">
+              <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-dk-pry1"></span>
+            </span>
+            <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-black rounded group-hover:-ml-4 group-hover:-mb-4">
+              <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-dk-pry1"></span>
+            </span>
+            <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-dk-pry1 rounded-md group-hover:translate-x-0"></span>
+            <span className="relative w-full text-xs text-white transition-colors duration-200 ease-in-out group-hover:text-white">
+              View Details
+            </span>
           </Link>
         </div>
       </div>
 
-      {/* Image Container */}
-      <div className="flex-1 rounded-2xl overflow-hidden mt-4 sm:mt-0">
+      {/* Image Container - Right Side */}
+      <div className="flex-1 rounded-2xl overflow-hidden">
         <div
-          className="bg-cover bg-center h-[50vh] sm:h-full"
+          className="bg-cover bg-center h-full"
           style={{
             backgroundImage: `url(${book.img})`,
+            backgroundSize: 'cover', // Change to cover to fill the container
+            backgroundPosition: 'center',
+            height: '100%',
+            width: '100%',
+            backgroundRepeat: 'no-repeat',
           }}
         ></div>
       </div>
     </div>
+  
   ))}
 </Carousel>
-
 
 </div>
 
