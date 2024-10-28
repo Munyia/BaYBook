@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Community = () => {
+const CommunityGuildlines = () => {
   const data = {
     title: "🌟 Community Guidelines 🌟",
     introduction: "Welcome to our vibrant community! To maintain a safe and supportive environment, please adhere to the following guidelines.",
@@ -65,4 +65,4 @@ const Community = () => {
   );
 };
 
-export default Community;
+export default CommunityGuildlines;

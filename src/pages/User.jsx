@@ -66,7 +66,7 @@ const UserProfile = () => {
       <div className="max-w-5xl flex flex-col md:flex-row gap-10 mx-auto rounded-lg">
         
         {/* Profile Header */}
-        <div className="flex flex-col text-center items-center border border-gray-500 p-6 rounded-2xl space-x-4 w-full md:w-1/3">
+        <div className="flex flex-col text-center items-center shadow-2xl shadow-slate-900 p-6 rounded-2xl space-x-4 w-full md:w-1/3">
           <div className="relative w-24 h-24 bg-body rounded-full flex-shrink-0">
             <img 
               src={userData.profilePicture} 
@@ -85,7 +85,7 @@ const UserProfile = () => {
         </div>
         
         {/* Dashboard Sections */}
-        <div className="grid border border-gray-500 p-5 rounded-3xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+        <div className="grid shadow-2xl shadow-slate-900 p-5 rounded-3xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
           
           {/* Purchased Books */}
           <div className="bg-transparent shadow-2xl p-6 rounded-lg">
@@ -107,7 +107,7 @@ const UserProfile = () => {
           </div>
 
           {/* Published Books */}
-          <div className="bg-transparent shadow-2xl p-6 rounded-lg">
+          <div className="bg-transparent shadow-2xl shadow-slate-900  p-6 rounded-lg">
             <h2 className="text-xl font-semibold mb-4 flex items-center font-mont">
               <FaPen className="text-but mr-2" />
               Published Books
@@ -124,7 +124,7 @@ const UserProfile = () => {
           </div>
 
           {/* Ongoing Purchases */}
-          <div className="bg-transparent shadow-2xl p-6 rounded-lg">
+          <div className="bg-transparent shadow-2xl shadow-slate-900 p-6 rounded-lg">
             <h2 className="text-xl font-semibold mb-4 flex items-center font-mont">
               <FaTruck className="text-but mr-2" />
               Ongoing Purchases
@@ -143,7 +143,7 @@ const UserProfile = () => {
 
       <div className='flex items-center pb-10 gap-5 mx-auto w-[80%]'>
         {/* Revenue Section */}
-        <div className="grid border border-gray-500 p-5 rounded-3xl grid-cols-1 md:grid-cols-1 gap-6 mt-6 w-full">
+        <div className="grid shadow-2xl shadow-slate-900 p-5 rounded-3xl grid-cols-1 md:grid-cols-1 gap-6 mt-6 w-full">
           <div className="bg-transparent shadow-2xl p-6 rounded-lg">
             <h2 className="text-xl font-semibold mb-4 flex items-center font-mont">
               <FaDollarSign className="text-but mr-2" />
@@ -156,7 +156,7 @@ const UserProfile = () => {
         </div>
 
         {/* Vouchers Section */}
-        <div className="grid border border-gray-500 p-5 rounded-3xl grid-cols-1 md:grid-cols-1 gap-6 mt-6 w-full">
+        <div className="grid   shadow-2xl shadow-slate-900 p-5 rounded-3xl grid-cols-1 md:grid-cols-1 gap-6 mt-6 w-full">
           <div className="bg-transparent shadow-2xl p-6 rounded-lg">
             <h2 className="text-xl font-semibold mb-4 flex items-center font-mont">
               <FaDollarSign className="text-but mr-2" />

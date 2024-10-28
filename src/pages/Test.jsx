@@ -1,55 +1,60 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Popular from '../components/Popular';
-import Recommended from '../components/Recommended';
-import Carousel from '../components/Carousel';
 
-// Mock data for carousel
-const carouselData = [
-  // Carousel data remains the same
+const categories = [
+  { id: 1, title: 'Fiction', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLdmHX5f1xvYLy7Yrxx6hI3FbIUiwHH1psww&s' },
+  { id: 2, title: 'Non-Fiction', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrBntdS2Kr0gxAbuknz1pY4Srfkw2DkAAH6Q&s' },
+  { id: 3, title: 'Mystery', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0afrokp_uabbS0XkKluX3uKnXF_YrSlXfQw&s' },
+  { id: 4, title: 'Science Fiction', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThn2O4f85iRUGth0pwLOtyRf-g24gOMKcPbQ&s' },
+  { id: 5, title: 'Fantasy', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc-_6EZT4O15Ivw11_Fh7nI1AQd5YxoT2A3w&s' },
+  { id: 6, title: 'Romance', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpZ6cNJqc9u0BDLrQ5QHeszHs8yqGBUsLJxKOxBhPSdl6I0CxBkUnhUs-zSr3U5w4Ta4A&usqp=CAU' },
+  // Add more categories as needed
 ];
 
-const Test = () => {
+const Category = () => {
   return (
-    <div className="min-h-screen bg-gray-100 px-4 sm:px-6 lg:px-8">
-      <div className="container mx-auto py-10">
-        {/* Carousel Section */}
-        <section>
-          <h1 className="text-center text-4xl font-bold mb-8 font-mont">Explore Books by Genre</h1>
-          <Carousel items={carouselData} />
-        </section>
+    <div className="min-h-screen font-play bg-gray-100 py-3 px-4">
+      <header className="text-center mb-4">
+        <h1 className="text-4xl font-bold text-gray-800">Explore Categories</h1>
+        <p className="text-lg text-gray-600">Find your next favorite book or product!</p>
+      </header>
 
-        {/* Popular Section */}
-        <section className="mt-10">
-          <h2 className="text-3xl font-bold font-mont text-center">Popular Books</h2>
-          <div className="mt-6">
-            <Popular />
-          </div>
-        </section>
-
-        {/* Recommended Section */}
-        <section className="mt-10">
-          <h2 className="text-3xl font-bold font-mont text-center">Recommended for You</h2>
-          <div className="mt-6">
-            <Recommended />
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="mt-10 text-center">
-          <h2 className="text-2xl font-bold font-mont">Start Reading Today!</h2>
-          <p className="mt-2 text-lg font-play">Browse our collection and find your next favorite book.</p>
-          <Link
-            to="/books"
-            className="mt-4 inline-block px-8 py-3 bg-purple-600 text-white font-play rounded-lg hover:bg-purple-700"
-          >
-            Browse Books
-          </Link>
-        </section>
+      <div className="mb-6 flex justify-center flex-wrap gap-4">
+        {/* Filter Section */}
+        <select className="border border-gray-300 rounded-md px-4 py-2">
+          <option>Sort by Popularity</option>
+          <option>Sort by Newest</option>
+          <option>Sort by Price</option>
+        </select>
+        <input
+          type="text"
+          placeholder="Search categories..."
+          className="border border-gray-300 rounded-md px-4 py-2"
+        />
       </div>
+
+      {/* Category Grid */}
+      <div className="grid grid-cols-1 pb-6 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {categories.map((category) => (
+          <Link
+            key={category.id}
+            to={`/category/${category.title.toLowerCase()}`}
+            className="relative block rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105"
+          >
+            <img
+              src={category.image}
+              alt={category.title}
+              className="w-full h-48 object-cover"
+            />
+            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 hover:bg-opacity-10 transition">
+              <h2 className="text-white text-xl font-semibold">{category.title}</h2>
+            </div>
+          </Link>
+        ))}
+      </div>
+
     </div>
   );
 };
 
-export default  Test
-;
+export default Category;

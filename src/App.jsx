@@ -17,13 +17,15 @@ import FAQ from './pages/FAQ'
 import About from './pages/About'
 import Blog from './pages/Blog'
 import Contact from './pages/Contact'
-import Category from './components/Categories'
-import Community from './pages/Community'
+import Category from './components/Category'
+import CommunityGuildlines from './pages/CommunityGuildlines'
 import Code from './pages/Code'
 import Policy from './pages/Policy'
 import Guarantee from './pages/Guarantee'
-import BookCard from './pages/BookCard'
-import CategoryDetail from './components/CategoryDetail'
+import BookCard from './components/BookCard'
+import CommunityGroup from './pages/CommunityGroup'
+import CategoryFilter from './components/CategoryFilter'
+
 
 
 const ScrollToTop = () => {
@@ -59,12 +61,15 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/category" element={<Category />} />
-          <Route path="/community" element={<Community />} />
+          <Route path="/communityguildlines" element={<CommunityGuildlines />} />
+          <Route path="/communitygroup" element={<CommunityGroup />} />
           <Route path="/code" element={<Code/>} />
           <Route path="/policy" element={<Policy/>} />
           <Route path="/guarantee" element={<Guarantee/>} />
           <Route path="/bookcard" element={<BookCard/>} />
-          <Route path="/category/:categoryName" component={CategoryDetail} />
+          <Route path="/categoryfilter" element={<CategoryFilter/>} />
+          
+          
         </Routes>
         <Footer />
       </BrowserRouter>

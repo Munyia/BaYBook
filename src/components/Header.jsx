@@ -110,7 +110,7 @@ const Header = () => {
                 <FontAwesomeIcon icon={faUser} className='text-lg' />
                 <span className='absolute left-0 transform -translate-x-full bg-gray-800 text-white text-xs rounded px-2 py-1 invisible group-hover:visible transition-all duration-200'>Profile</span>
               </Link>
-              <Link to={"/community"} className='relative hidden sm:flex items-center hover:text-xl group'>
+              <Link to={"/communitygroup"} className='relative hidden sm:flex items-center hover:text-xl group'>
                 <FontAwesomeIcon icon={faUsers} className='text-lg' />
                 <span className='absolute left-0 transform -translate-x-full bg-gray-800 text-white text-xs rounded px-2 py-1 invisible group-hover:visible transition-all duration-200'>Community</span>
               </Link>
@@ -140,7 +140,7 @@ const Header = () => {
           <Link to={"/user"} className='hover:text-xl'>
             <FontAwesomeIcon icon={faUser} /> Profile
           </Link>
-          <Link to={"/community"} className='hover:text-xl'>
+          <Link to={"/communitygroup"} className='hover:text-xl'>
             <FontAwesomeIcon icon={faUsers} /> Community
           </Link>
           <Link to={"/cart"} className='hover:text-xl'>
